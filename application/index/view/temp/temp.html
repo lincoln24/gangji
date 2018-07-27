@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/static/css/env.css" rel="stylesheet" type="text/css">
+<title>环境</title>
+</head>
+<body>
+    <section class="statics-section">
+        <figure class="statics-figure">
+            <figcaption class="statics-figcaption statics-figcaption-one">
+                <span class="statics-figcaption-click">环境图示</span>
+                <span>环境实时数据</span>
+            </figcaption>
+            <div class="statics-fig-one">
+                <div class="ccontainer" id="EnvPagecc0">
+                    <div id="env_temp_chart" class="env_chart_container"></div>
+                    <table id="env_temp_label" class="env_label_table">
+                        <tr>
+                            <td width="4.6%">机柜<br>编号</td>
+                        </tr>
+                    </table>
+                    <div id="env_humi_chart" class="env_chart_container"></div>
+                    <table id="env_humi_label" class="env_label_table">
+                        <tr>
+                            <td width="4.6%">机柜<br>编号</td>
+                        </tr>
+                    </table>
+                    <div class="loading_center"></div>
+                </div>
+                <div  class="ccontainer elec_all" style="display: none" id="EnvPagecc1">
+                    <span class="terminal_data_container" id="env_realData_container">
+                        <div class="loading_center"></div>
+                        <div class="all_table_container env_minitable" style="display: none">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td class="light_yel_td" width="60%">热通道</td>
+                                    <td class="dark_yel_td" width="40%">中</td>
+                                </tr>
+                                <tr><td colspan="2">机柜编号</td></tr>
+                                <tr>
+                                    <td rowspan="2" class="light_blue_td">冷通道</td>
+                                    <td class="light_blue_td">上</td>
+                                </tr>
+                                <tr>
+                                    <td class="dark_blue_td">下</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </figure>
+    </section>
+</body>
+</html>
