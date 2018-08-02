@@ -13,21 +13,31 @@ class Temp extends ControllerBase
 
     public function get_temp_sensor_data()
     {
-        $input = request()->put();
+        $input = request()->put();//传来的数据一定要带有content-type:application/json的头
 
-        $result = Db::table('sensor_list_table')
-        ->where(array(
-            'node_id' => $input['node_id'],
-            'sensor_id' => $input['sensor_id']))
-        ->select();
+        $sqlToDo = "select s.sensor_id as SensorId,s.name as Name,t.temp as Temp,t.status,";
+        $sqlToDo .= "s.h_threshold as Hthreshold,s.l_threshold as Lthreshold";
+        $sqlToDo .= " FROM c_sensor s inner join d_temp_data t on s.sensor_id=t.sensor_id where s.sensor_type=1";
 
+        if (isset($input['sensor_id']))
+        {
+            $sqlToDo .= " AND s.sensor_id = " . $input['sensor_id'];
+        }
+        if (isset($input['zone_id']))
+        {
+            $sqlToDo .= " AND s.zone_id = " . $input['zone_id'];
+        }
+        // dump($sqlToDo);
+        $result = Db::query($sqlToDo);
+        // dump($result);
         if($result == null)
         {
-            return json_encode($this->ajaxReturnCode(CODE_FAILED)); 
+            return $result; 
         }
         else
         {
-            return json_encode($result[0]);
+            $result = $this->add_status($result);
+            return json_encode($result);
         }
     }
 
@@ -53,5 +63,15 @@ class Temp extends ControllerBase
         {
             return json_encode($result);
         }
+    }
+
+    protected function add_status($result)
+    {
+        foreach ($result as $key => $value)
+        {
+            $result[$key]["Temp"] = [$value["Temp"], $value["status"]];
+            unset($result[$key]["status"]);
+        }
+        return $result;
     }
 }

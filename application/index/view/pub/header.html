@@ -1,0 +1,50 @@
+
+<link href="/static/css/index.css" rel="stylesheet" type="text/css">
+<script>
+   var commeUrl="__URL__".split("/");
+   commeUrl.splice(commeUrl.length-2,2);
+   var zone_id = [];
+</script>
+<script type="text/javascript" src="/static/js/custom.modernizr.js"></script>
+<script type="text/javascript" src="/static/js/excanvas.compiled.js"></script>
+<!-- 该处删除了登陆超时的php代码，若需查看查阅源文件 -->
+<header class="header" id="index_header">
+<div  class="header_l">
+      <span class="header_title">动联智创系统</span>
+   </div>
+   <div class="header_r">
+      <span  id="logout" class="hra">
+         <!-- <p><img src="/static/img/logout.png"></p> -->
+         <p>登出</p>
+      </span>
+      <span id="sign_header_ico" class="hra">
+         <!-- <p><img src="/static/img/sign.png"></p> -->
+         <p>签到</p>
+      </span>
+      <span id="alarm_header_ico"  class="hra">
+         <!-- <p><img src="/static/img/alarm.png" id="header_alarm_img"></p> -->
+         <p>告警</p>
+      </span>
+      <span class="header_time hra" >
+         <p>
+            <span class="headerTime"></span>
+         </p>
+         <p>
+            <span class="header_date"></span>
+            &nbsp;&nbsp;
+            <span class="header_day"></span>
+         </p>
+      </span>
+      <span class="user_power hra">
+         <p>
+            <!-- <img src="/static/img/user_name.png" style="vertical-align:middle;"> -->
+            &nbsp;:&nbsp;
+            <span id="header_name"></span>
+         </p>
+         <!-- <p><img src="/static/img/user_power.png" style="vertical-align:middle;"> -->
+            &nbsp;:&nbsp;
+            <span id="header_level"></span>
+         </p>
+      </span>
+   </div>
+   </header>
