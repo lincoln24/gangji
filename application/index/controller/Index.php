@@ -1,11 +1,13 @@
 <?php
 namespace app\index\controller;
 
-class Index
+use app\common\controller\ControllerBase;
+
+class Index extends ControllerBase
 {
     public function index()
     {
-        return 'Hello,World！';
+        return $this->fetch('user/login');
     }
 
     public function hello($name = 'ThinkPHP5')

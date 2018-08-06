@@ -10,23 +10,51 @@ class User extends ControllerBase
     {
     }
 
-    public function user_log_in()
+    public function login()
     {
-        $input = request()->put();
+       $name = input('request.name');
+       $password = input('request.password');
+
 
         $result = Db::table('c_user')
         ->where(array(
-            'user_name' => $input['user_name'],
-            'user_passwd' => $input['user_passwd']))
+            'user_name' => $name,
+            'user_passwd' => $password))
         ->select();
 
         if($result == null)
-        {
-            return $this->ajaxReturnCode(CODE_FAILED); 
+        {       
+            return $this->fetch('login'); 
+            // return 'login'; 
         }
         else
         {
-            return json_encode($result[0]);
+            header(strtolower("location:/index/temp"));
+            exit();
+            // return 'wfefdfsdf'; 
+        }
+    }
+
+    public function user_log_in()
+    {
+       $name = input('request.name');
+       $password = input('request.password');
+
+
+        $result = Db::table('c_user')
+        ->field('id')
+        ->where(array(
+            'user_name' => $name,
+            'user_passwd' => $password))
+        ->select();
+
+        if($result == null)
+        {       
+            return $result; 
+        }
+        else
+        {
+            return json_encode($result);
         }
     }
 

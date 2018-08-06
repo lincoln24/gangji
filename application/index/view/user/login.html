@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="/static/css/reset.css">
         <link rel="stylesheet" href="/static/css/supersized.css">
         <link rel="stylesheet" href="/static/css/style.css">
+        <link href="/static/css/index.css" rel="stylesheet" type="text/css">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -22,8 +23,10 @@
     <body>
 
         <div class="page-container">
+            <h1 style="font-size: 3rem; cursor: default;text-shadow:2px 2px 5px orange,-2px 2px 5px green;">西人马智慧创联系统</h1>
+            <br /><br /><br /><br /><br />
             <h1>登录</h1>
-            <form action="login" method="post">
+            <form action="/index/user/login" method="post">
                 <input type="text" name="name" class="username" placeholder="用户名">
                 <input type="password" name="password" class="password" placeholder="密码">
                 <button type="submit">提交</button>

@@ -8,7 +8,7 @@ class Temp extends ControllerBase
 {
     public function index()
     {
-        return $this->fetch('temp');
+        return $this->fetch('realtimedata/temp');
     }
 
     public function get_temp_sensor_data()
@@ -17,7 +17,7 @@ class Temp extends ControllerBase
 
         $sqlToDo = "select s.sensor_id as SensorId,s.name as Name,t.temp as Temp,t.status,";
         $sqlToDo .= "s.h_threshold as Hthreshold,s.l_threshold as Lthreshold";
-        $sqlToDo .= " FROM c_sensor s inner join d_temp_data t on s.sensor_id=t.sensor_id where s.sensor_type=1";
+        $sqlToDo .= " FROM c_sensor s inner join d_temp_data t on s.sensor_id=t.sensor_id where s.sensor_type=" . TYPE_TEMP_SENSOR;
 
         if (isset($input['sensor_id']))
         {
