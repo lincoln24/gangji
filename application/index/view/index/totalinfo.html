@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <link rel="Shortcut Icon" href="__PUBLIC__/favicon.ico"> -->
+    <link href="/static/css/static.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/Equipmessage.css" rel="stylesheet" type="text/css">
+    <script>
+        var runtime="{$data.system.run_time}";//运行时间
+        var storage_hdu="{$data.storage.hard_disk.used}";//已用容量
+        var storage_hdt="{$data.storage.hard_disk.total}";//总容量，单位KB
+        var COMMOM_HARD_DISK="硬盘";
+    </script>
+    <script src="/static/js/require.js" data-main="/static/js/page_action/totalinfo.js"></script>
+<title>西人马智慧创联系统</title>
+</head>
+
+<body class="statics_bg">
+{include file="pub/header"}
+{include file="pub/nav"}
+<section class="statics_section">
+   <!--顶部导航开始-->
+   <header class="statics_header">
+   </header>
+   <!--顶部导航结束-->
+
+   <!--内容开始-->
+   <section class="esUPS_cotainer">   
+      <section  class="Em_info_cotainer">
+       <div>
+         <p class="esUPS_voltage_title">系统信息</p>
+         <ul class="Em_info_cotainer_ul">
+            <li>
+            	<span>系统名称:</span>
+                <span>{$data.system.name_f}</span>
+            </li>
+            <li>
+            	<span>系统管理员:</span>
+                <span>{$data.system.contact_name}</span>
+            </li>
+            <li>
+              <span>管理员联系方式:</span>
+                <span>{$data.system.contact_phone}</span>
+            </li>
+            <li>
+            	<span>总体运行时间:</span>
+                <span id="runTime"></span>
+            </li>
+             <li>
+                 <span>上次维护时间:</span>
+                 <span >{$data.system.maintain_time}</span>
+             </li>
+         </ul>
+       </div>
+      </section>
+      
+      <section  class="Em_info_cotainer">
+       <div style="margin-right:0px;">
+         <p class="esUPS_voltage_title">存储信息</p>
+         <ul class="Em_info_cotainer_ul">
+             <li>
+                 <span>硬盘已用容量/容量(GB):</span>
+                 <span id="storage_hd"></span>
+             </li>
+         </ul>
+       </div>
+      </section>
+      
+       <div  class="esUPS_data_cotainer">
+          <span class="esUPS_title"> <span class="esUPS_title_text Emfont_size">设备状态</span></span>
+          <table class="Em_info_table" id="deviceInfoTable">
+              <tr>
+                  <td width="25%">所在区域</td>
+                  <td width="25%">设备类型</td>
+                  <td width="25%">设备总数</td>
+                  <td width="25%">异常总数</td>
+              </tr>
+              </table>
+       </div>
+   </section>
+   <!--内容结束-->
+
+</section>
+
+</body>
+</html>

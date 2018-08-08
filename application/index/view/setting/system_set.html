@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <link rel="Shortcut Icon" href="__PUBLIC__/favicon.ico"> -->
+    <link href="/static/css/static.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/Usermanage.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/validform.css" rel="stylesheet" type="text/css">
+    <script>
+        var ERR_UPLOAD_SUFFIX_NOT_PERMIT="上传文件格式不正确";
+    </script>
+    <script src="/static/js/require.js" data-main="/static/js/page_action/SystemSet.js"></script>
+    <title>西人马智慧创联系统</title>
+</head>
+
+<body class="statics_bg" id="SystemSet_body">
+{include file="pub/header"}
+{include file="pub/nav"}
+
+<section class="statics_section">
+   <header class="statics_header">
+   </header>
+    <section  class="esUPS_cotainer">
+       <!--参数设置开始-->
+        <form class="sysform">
+            <figure  class="es_table_title">
+                <figcaption>
+                    <span>参数设置</span>
+                </figcaption>
+                <span class="es_table_container">
+                    <table class="normal_table Um_table">
+                        <tbody>
+                        <tr>
+                            <td width="20%">系统名称</td>
+                            <td width="30%">
+                                <input type="text" name="sysset_name_f" datatype="*0-20,sysname"  errormsg="格式错误" >
+                                <div class="info">
+                                    <span class="Validform_checktip"></span>
+                                    <span class="dec">
+                                        <a class="dec1"></a>
+                                    </span>
+                                </div>
+                            </td>
+                            <td width="20%">系统管理者：</td>
+                            <td width="30%">
+                                <input type="text" name="sysset_contact_name" errormsg="格式错误" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%">管理者联系方式：</td>
+                            <td width="30%">
+                                <input type="text" name="sysset_contact_phone" errormsg="格式错误" >
+                            </td>
+                            <td>界面语言</td>
+                            <td>
+                                <select id="websys_lanage" name="sysset_lang_web">
+                                    <option value="zh-cn">中文</option>
+                                    <option value="en-us">English</option>
+                                </select>
+                            </td>
+                        </tr>
+                       <!--  <tr>
+                            <td>网页登录方式:</td>
+                            <td>
+                                <select name="sysset_login_type">
+                                    <option value="0">Http</option>
+                                    <option value="1">Https</option>
+                                    <option value="2">Http {$Think.lang._COM_AND_} Https</option>
+                                </select>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr> -->
+                        <!-- <tr>
+                            <td>https证书</td>
+                            <td colspan="3">
+                                    <input type="text">
+                                    <a class="inputFile">
+                                        <img src="__PUBLIC__/ixx/button_ico/search.png" style="padding-right:5px;">
+                                        <input type="file" name="https_file" id="https_inputfile" accept="application/gzip">
+                                        浏览
+                                    </a>
+                                    <button type="button" class="input_6" id="https_button">
+                                        <img src="__PUBLIC__/ixx/button_ico/upload.png">
+                                        提交
+                                    </button>
+                                    <span class="grey_note">
+                                        (*支持gz格式*)
+                                    </span>
+                            </td>
+                        </tr> -->
+                        </tbody>
+                    </table>
+                </span>
+            </figure>
+            <span  class="right_bottom_cotainer">
+                <span class="systip0"></span>
+                <button  type="button" class="input_4 ">
+                    <!-- <img src="__PUBLIC__/ixx/button_ico/complete.png"> -->
+                    <span>  确认  </span>
+                </button>
+            </span>
+        </form>
+       <!--参数设置结束-->
+       
+       
+       <!--日期与时间开始-->
+        <form class="sysform">
+            <figure  class="es_table_title">
+                <figcaption>
+                    <span>日期与时间</span>
+                </figcaption>
+                <span class="es_table_container">
+                    <table class="normal_table Um_table" id="date_time_table">
+                        <tbody>
+                        <tr>
+                            <td width="20%">使用网络日期和时间：</td>
+                            <td width="80%" colspan="3">
+                                <input type="radio" name="SyDate_auto_time"  value="0" id="Sys_auto_time_y">
+                                <label for="Sys_auto_time_y">否</label>
+                                <input type="radio"  name="SyDate_auto_time" value="1" id="Sys_auto_time_n">
+                                <label for="Sys_auto_time_n">是</label>
+                                <div class="info">
+                                    <span class="Validform_checktip"></span>
+                                    <span class="dec">
+                                        <a class="dec1"></a>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>自动更新时间间隔:</td>
+                            <td  colspan="3">
+                                <select name="SyDate_up_span_index">
+                                    <option value="1">1小时</option>
+                                    <option value="2">3小时</option>
+                                    <option value="3">12小时</option>
+                                    <option value="4">1天</option>
+                                    <option value="5">10天</option>
+                                    <option value="6">30天</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="autorenew_true">
+                            <td>时间服务器:</td>
+                            <td  colspan="3">
+                                <select name="SyDate_serv_type">
+                                    <option value="0">网络</option>
+                                    <option value="1">自定义</option>
+                                </select>
+                                <select style="width: 250px;" name="SyDate_serv_index">
+                                    <option id="sc_sts_s3_o0" value="0">time.nist.gov</option>
+                                    <option id="sc_sts_s3_o1" value="1">time.windows.com</option>
+                                    <option id="sc_sts_s3_o2" value="2">ntp0.cs.mu.OZ.AU</option>
+                                    <option id="sc_sts_s3_o3" value="3">ntp1.cs.mu.OZ.AU</option>
+                                    <option id="sc_sts_s3_o4" value="4">ntp1.rnp.br</option>
+                                    <option id="sc_sts_s3_o5" value="5">ntps1.pads.ufrj.br</option>
+                                    <option id="sc_sts_s3_o6" value="6">clock.uregina.ca</option>
+                                    <option id="sc_sts_s3_o7" value="7">subitaneous.cpsc.ucalgary.ca</option>
+                                    <option id="sc_sts_s3_o8" value="8">tick.usask.ca</option>
+                                    <option id="sc_sts_s3_o9" value="9">tock.usask.ca</option>
+                                    <option id="sc_sts_s3_o10" value="10">ntp.metas.ch</option>
+                                    <option id="sc_sts_s3_o11" value="11">swisstime.ethz.ch</option>
+                                    <option id="sc_sts_s3_o12" value="12">ntp.dgf.uchile.cl</option>
+                                    <option id="sc_sts_s3_o13" value="13">ntp.shoa.cl</option>
+                                    <option id="sc_sts_s3_o14" value="14">ntp.cesnet.cz</option>
+                                    <option id="sc_sts_s3_o15" value="15">ntp0.fau.de</option>
+                                    <option id="sc_sts_s3_o16" value="16">ntp1.fau.de</option>
+                                    <option id="sc_sts_s3_o17" value="17">ntp2.fau.de</option>
+                                    <option id="sc_sts_s3_o18" value="18">ntp3.fau.de</option>
+                                    <option id="sc_sts_s3_o19" value="19">ntps1-0.cs.tu-berlin.de</option>
+                                    <option id="sc_sts_s3_o20" value="20">ntps1-1.cs.tu-berlin.de</option>
+                                    <option id="sc_sts_s3_o21" value="21">ptbtime1.ptb.de</option>
+                                    <option id="sc_sts_s3_o22" value="22">ptbtime2.ptb.de</option>
+                                    <option id="sc_sts_s3_o23" value="23">rustime01.rus.uni-stuttgart.de</option>
+                                    <option id="sc_sts_s3_o24" value="24">GPS.FreeBSD.dk</option>
+                                    <option id="sc_sts_s3_o25" value="25">GPS.dix.dk</option>
+                                    <option id="sc_sts_s3_o26" value="26">canon.inria.fr</option>
+                                    <option id="sc_sts_s3_o27" value="27">chronos.cru.fr</option>
+                                    <option id="sc_sts_s3_o28" value="28">ntp-p1.obspm.fr</option>
+                                    <option id="sc_sts_s3_o29" value="29">ntp-sop.inria.fr</option>
+                                </select>
+                                <input type="text" name="SyDate_serv_addr_self" datatype="IpAddress"  errormsg="{$Think.lang._ERR_FORMAT_}" >
+                            </td>
+                        </tr>
+                        <tr class="autorenew_false">
+                            <td>设置日期时间:</td>
+                            <td>
+                                <input type="text" name="SyDate_current_time"  class="Wdate" readonly="readonly" id="sys_setting">
+                            </td>
+                            <td class="text_light_black" colspan="2">
+                                <span>当前系统时间：</span>
+                                <span id="sys_current_time"></span>
+                            </td>
+                        </tr>
+                        <tr  class="autorenew_false">
+                            <td>选择时区:</td>
+                            <td colspan="3">
+                                <select name="SyDate_timezone_index">
+                                    <option  value="0" op="-12">GMT-12:00</option>
+                                    <option  value="1" op="-11">GMT-11:00</option>
+                                    <option  value="2" op="-10">GMT-10:00</option>
+                                    <option  value="3" op="-9">GMT-9:00</option>
+                                    <option  value="4" op="-8">GMT-8:00</option>
+                                    <option  value="5" op="-7">GMT-7:00</option>
+                                    <option  value="6" op="-6">GMT-6:00</option>
+                                    <option  value="7" op="-5">GMT-5:00</option>
+                                    <option  value="8" op="-4">GMT-4:00</option>
+                                    <option  value="9" op="-3">GMT-3:00</option>
+                                    <option  value="10" op="-2">GMT-2:00</option>
+                                    <option  value="11" op="-1">GMT-1:00</option>
+                                    <option  value="12" op="0">GMT</option>
+                                    <option  value="13" op="1">GMT+1:00</option>
+                                    <option  value="14" op="2">GMT+2:00</option>
+                                    <option  value="15" op="3">GMT+3:00</option>
+                                    <option  value="16" op="4">GMT+4:00</option>
+                                    <option  value="17" op="5">GMT+5:00</option>
+                                    <option  value="18" op="6">GMT+6:00</option>
+                                    <option  value="19" op="7">GMT+7:00</option>
+                                    <option  value="20" op="8">GMT+8:00</option>
+                                    <option  value="21" op="9">GMT+9:00</option>
+                                    <option  value="22" op="10">GMT+10:00</option>
+                                    <option  value="23" op="11">GMT+11:00</option>
+                                    <option  value="24" op="12">GMT+12:00</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </span>
+            </figure>
+            <span  class="right_bottom_cotainer">
+                <span class="systip2"></span>
+                <button  type="button" class="input_4">
+                    <!-- <img src="__PUBLIC__/ixx/button_ico/complete.png"> -->
+                    <span>  确认  </span>
+                </button>
+            </span>
+        </form>
+       <!--日期与时间结束-->
+        <!--权限设置-->
+        <form class="sysform">
+            <figure  class="es_table_title">
+                <figcaption>
+                    <span>权限设置</span>
+                </figcaption>
+                <span class="es_table_container" id="Set_power_container">
+                    <table class="normal_table Um_table" id="power_table">
+                        <tbody>
+                        <tr>
+                            <td width="20%">登录超时时间：</td>
+                            <td>
+                                <label class="event_radio">
+                                    <input type="radio" value="10" name="Set_power_login_expire">
+                                    10分钟
+                                </label>
+                                <label class="event_radio">
+                                    <input type="radio" value="30" name="Set_power_login_expire">
+                                    30分钟
+                                </label>
+                                <label class="event_radio">
+                                    <input type="radio" value="0" name="Set_power_login_expire">
+                                    永不超时
+                                </label>
+                                <label class="event_radio">
+                                    <input type="radio" value="auto" name="Set_power_login_expire">
+                                    自定义(分钟)
+                                </label>
+                                <input type="text" datatype="Numberlimit" mmLimit="1#3600" disabled="disabled" id="Set_power_auto_loginTime">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </span>
+            </figure>
+            <span  class="right_bottom_cotainer">
+                <span class="systip2"></span>
+                <button  type="button" class="input_4">
+                    <!-- <img src="__PUBLIC__/ixx/button_ico/complete.png"> -->
+                    <span>  确认  </span>
+                </button>
+            </span>
+        </form>
+       
+    </section> 
+
+</section>
+
+</body>
+</html>

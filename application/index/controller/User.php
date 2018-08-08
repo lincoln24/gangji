@@ -10,31 +10,6 @@ class User extends ControllerBase
     {
     }
 
-    public function login()
-    {
-       $name = input('request.name');
-       $password = input('request.password');
-
-
-        $result = Db::table('c_user')
-        ->where(array(
-            'user_name' => $name,
-            'user_passwd' => $password))
-        ->select();
-
-        if($result == null)
-        {       
-            return $this->fetch('login'); 
-            // return 'login'; 
-        }
-        else
-        {
-            header(strtolower("location:/index/temp"));
-            exit();
-            // return 'wfefdfsdf'; 
-        }
-    }
-
     public function user_log_in()
     {
        $name = input('request.name');
@@ -62,23 +37,7 @@ class User extends ControllerBase
     {
         $input = request()->put();
 
-        $result = Db::table('c_user')
-        ->field('zone')
-        ->where(array(
-            'id' => $input['user_id']))
-        ->select();
-
-        $zoneList = explode(",",$result[0]["zone"]);
-        // dump($zoneList);
-
-        $sqlToDo = "select zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat";
-        $sqlToDo .= " FROM c_zone WHERE 1=0";
-        foreach ($zoneList as $key => $value) {
-            $sqlToDo .= " OR zone_id=" . $value;
-        }
-        // dump($sqlToDo);
-
-        $result = Db::query($sqlToDo);
+        $result = model('Czone')->get_zone($input['user_id']);
 
         if($result == null)
         {

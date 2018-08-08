@@ -1,8 +1,6 @@
 
 <link href="/static/css/index.css" rel="stylesheet" type="text/css">
 <script>
-   var commeUrl="__URL__".split("/");
-   commeUrl.splice(commeUrl.length-2,2);
    var zone_id = [];
 </script>
 <script type="text/javascript" src="/static/js/custom.modernizr.js"></script>
@@ -22,8 +20,19 @@
          <p>签到</p>
       </span>
       <span id="alarm_header_ico"  class="hra">
-         <p><img src="/static/img/alarm.jpg" id="header_alarm_img"></p>
+         <p><img src="/static/img/alarm.png" id="header_alarm_img"></p>
          <p>告警</p>
+      </span>
+      <span class="user_power hra">
+         <p>
+            <!-- <img src="/static/img/user_name.png" style="vertical-align:middle;"> -->
+            用户&nbsp;:&nbsp;
+            <span id="header_name"></span>
+         </p>
+         <!-- <p><img src="/static/img/user_power.png" style="vertical-align:middle;"> -->
+            权限&nbsp;:&nbsp;
+            <span id="header_level"></span>
+         </p>
       </span>
       <span class="header_time hra" >
          <p>
@@ -33,17 +42,6 @@
             <span class="header_date"></span>
             &nbsp;&nbsp;
             <span class="header_day"></span>
-         </p>
-      </span>
-      <span class="user_power hra">
-         <p>
-            <!-- <img src="/static/img/user_name.png" style="vertical-align:middle;"> -->
-            &nbsp;:&nbsp;
-            <span id="header_name"></span>
-         </p>
-         <!-- <p><img src="/static/img/user_power.png" style="vertical-align:middle;"> -->
-            &nbsp;:&nbsp;
-            <span id="header_level"></span>
          </p>
       </span>
    </div>
