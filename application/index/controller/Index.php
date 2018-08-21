@@ -5,6 +5,8 @@ use think\Db;
 use think\facade\Session;
 use think\Controller;
 
+require __DIR__ . '/../../common/common.php';
+
 class Index extends Controller
 {
     public function index()
@@ -42,5 +44,24 @@ class Index extends Controller
             exit();
             // return 'wfefdfsdf'; 
         }
+    }
+    /**
+     * 用户登出后台
+     */
+    public function logout()
+    {
+        if (Session::has('userName') && ("" != Session::get('userName')))
+        {
+            //添加注销记录
+            // D("DUserLogin")->add_logout_record($user_id);
+            Session::delete('login_time');
+            Session::delete('userName');
+            Session::delete('userID');
+            Session::delete('userLevel');
+        }
+
+        return (json_encode(array(
+                "code" => get_auth_status(),
+                "error" => "")));
     }
 }

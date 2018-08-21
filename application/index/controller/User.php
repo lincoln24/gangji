@@ -37,7 +37,7 @@ class User extends ControllerBase
     {
         $input = request()->put();
 
-        $result = model('Czone')->get_zone($input['user_id']);
+        $result = model('Czone')->get_zone_list($input['user_id']);
 
         if($result == null)
         {

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <link rel="Shortcut Icon" href="/static/fmgicon.ico"> -->
+    <link href="/static/css/static.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/Alarmmanage.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/jqpagination.css" rel="stylesheet" type="text/css">
+    <script>
+        var FAULT =  "{$Think.lang._AM_FAULT_}";
+        var ALARM = "{$Think.lang._AM_ALARM_}";
+        var EVENT = "{$Think.lang._AM_EVENT_}";
+        var INFO = "{$Think.lang._AM_INFO_}";
+        var AUX_DEBUG_CLOSE = "{$Think.lang._AUX_DEBUG_CLOSE_}";//关闭
+        var AUX_DEBUG_OPEN = "{$Think.lang._AUX_DEBUG_OPEN_}";//打开
+        var COMMOM_UPLOAD_FAIL = "{$Think.lang._COMMOM_UPLOAD_FAIL_}";//上传成功
+        var COMMON_CONFIRM_SUCCESS= "{$Think.lang._COMMON_CONFIRM_SUCCESS_}";//确认成功
+    </script>
+    <script src="/static/js/require.js" data-main="/static/js/page_action/AlarmInfo.js"></script>
+    <title>西人马智慧创联系统</title>
+</head>
+<body class="statics_bg">
+{include file="pub/header"}
+{include file="pub/nav"}
+<section class="statics_section">
+   <!--顶部导航开始-->
+   <header class="statics_header">
+   </header>
+   <!--顶部导航结束-->
+
+   <!--内容开始-->
+   <section class="esUPS_cotainer">
+       <!--任务提醒开始-->
+       <figure  class="es_table_title">
+           <figcaption>
+               <span>告警信息处理</span>
+           </figcaption>
+           <span class="es_table_container">
+               <table class="normal_table">
+               <tbody>
+                  <tr>
+                     <td>处理状态：</td>
+                     <td width="20%">
+                       <select id="search_status">
+                         <option value="0"><!--全部-->{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
+                         <option selected="selected" value="1">发生中</option>
+                         <option value="2">已恢复</option>
+                       </select>
+                     </td>
+                     <td><!--事件等级：-->{$Think.lang._AM_EVENT_LEVEL_}:</td>
+                     <td width="20%">
+                        <select id="search_level">
+                            <option value="0"><!--全部-->{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
+                            <option value="1"><!--故障-->{$Think.lang._AM_FAULT_}</option>
+                            <option value="2"><!--告警-->{$Think.lang._AM_ALARM_}</option>
+                            <option value="3"><!--事件-->{$Think.lang._AM_EVENT_}</option>
+                            <option value="4"><!--信息-->{$Think.lang._AM_INFO_}</option>
+                       </select>
+                     </td>
+                     <td><!--告警时间：-->{$Think.lang._USER_ALARM_TIME_}:</td>
+                     <td width="30%" colspan="2">
+                       <input id="startTime" name="startTime" type="text" class="Wdate" readonly="readonly">
+                       <span>--</span>
+                       <input id="endTime" name="endTime" type="text" class="Wdate" readonly="readonly" >
+                     </td>
+                     <td>
+                         <button id="searchButton" type="button"  class="input_4" >
+                             <!-- <img src="/static/img/button_ico/search.png"> -->
+                             <!--查询-->{$Think.lang._COMM_SEARCH_}
+                         </button>
+                     </td>
+                  </tr>                 
+               </tbody>
+               </table>
+               <span  class="alarm_dashline"></span><!--虚线-->
+               <table class="plan_table">
+               <thead>
+                  <tr>
+                     <td width="6%"><span><!--序号-->{$Think.lang._RS_SYS_NO_}</span></td>
+                     <td width="10%"><span><!--设备名称-->{$Think.lang._RS_HISTORY_EQUIP_}</span></td>
+                     <td width="12%"><span><!--事件名称-->{$Think.lang._AM_EVENT_NAME_}</span></td>
+                     <td width="10%"><span><!--事件等级-->{$Think.lang._AM_EVENT_LEVEL_}</span></td>
+                     <td width="13%"><span><!--告警时间-->{$Think.lang._AM_HAPPEN_TIME_}</span></td>
+                     <td width="10%"><span><!--恢复时间-->{$Think.lang._AM_CANCEL_TIME_}</span></td>
+                  </tr>
+               </thead>
+               <tbody id="alarm_infor_table">
+                  <!--插入表格-->
+               </tbody>
+               <tfoot>
+                   <tr class="lasttr">
+
+                  </tr>
+                  <tr>
+                     <td colspan="2"  >
+                        <span style="float:left;">
+                        <button type="button" id="export" class="input_4" >
+                            <!-- <img src="/static/img/button_ico/export.png"> -->
+                            <!--导出-->{$Think.lang._BUTTON_EXPORT_}
+                        </button>
+                        <a id="download_a"></a>
+                        <input id="importFile" name="importData" type="file" style="visibility: hidden;" onchange="fileSubmit()">
+                        </span>
+                     </td>
+                      <td colspan="6">
+                            <span class="pagination Em_pagination">
+                                <a href="#" class="first" data-action="first"><!--首 页-->{$Think.lang._COMM_FIRST_PAGE_}</a>
+                                <a href="#" class="previous" data-action="previous">&lt;</a>
+                                <input type="text" readonly="readonly" />
+                                <a href="#" class="next" data-action="next">&gt;</a>
+                                <a href="#" class="last" data-action="last"><!--末 页-->{$Think.lang._COMM_LAST_PAGE_}</a>
+                                <span class="all_w">共</span>
+                                <span  class="all_page"></span>
+                                <span class="page_w">页</span>
+                            </span>
+                      </td>
+                  </tr>
+               </tfoot>
+               </table>
+</span>
+       </figure>
+       <!--任务提醒结束-->
+   </section>
+   <!--内容结束-->
+</section>
+</body>
+</html>

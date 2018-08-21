@@ -1,6 +1,21 @@
 
 <link href="/static/css/index.css" rel="stylesheet" type="text/css">
 <script>
+   var popTip="{$Think.lang._COMMOM_POPWIN_TIP_}";//提示
+   var selectOne="请选择一个选项";
+   var COMM_CONFIRM="{$Think.lang._COMM_CONFIRM_}";//确认
+   var COMM_CANCEL="{$Think.lang._COMM_CANCEL_}";//取消
+   var HEAD_SUN="{$Think.lang._HEAD_SUN_}";//星期日
+   var HEAD_MON="{$Think.lang._HEAD_MON_}";//星期一
+   var HEAD_TUE="{$Think.lang._HEAD_TUE_}";//星期二
+   var HEAD_WED="{$Think.lang._HEAD_WED_}";//星期三
+   var HEAD_THU="{$Think.lang._HEAD_THU_}";//星期四
+   var HEAD_FIR="{$Think.lang._HEAD_FIR_}";//星期五
+   var HEAD_SAT="{$Think.lang._HEAD_SAT_}";//星期六
+   var USER_USERLEVEL_NORMAL="{$Think.lang._USER_USERLEVEL_NORMAL_}";//一般用户
+   var USER_USERLEVEL_OPERATOR="{$Think.lang._USER_USERLEVEL_OPERATOR_}";//系统操作员
+   var EMGENERAL_SYSTEM_CHARGER="{$Think.lang._USER_USERLEVEL_ADMIN_}";//系统管理员
+   var COM_SUPER_MANAGER="{$Think.lang._USER_USERLEVEL_ROOT_}";//超级管理员
    var zone_id = [];
 </script>
 <script type="text/javascript" src="/static/js/custom.modernizr.js"></script>
@@ -41,7 +56,7 @@
          <p>
             <span class="header_date"></span>
             &nbsp;&nbsp;
-            <span class="header_day"></span>
+            <!-- <span class="header_day"></span> -->
          </p>
       </span>
    </div>

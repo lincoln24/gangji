@@ -16,6 +16,9 @@ define("EVENT_CONFIRM", 1);//事件确认
 define("EVENT_CANCEL", 2);//事件恢复
 define("EVENT_USELESS", 3);//无效事件
 
+define("STAT_NORMAL", 0);//正常
+define("STAT_ABNORMAL", 1);//异常
+
 define("LOGIN_EXPIRE", 20 * 60); //登陆超时时间，单位秒
 
 define("VAL_NA", -9999);       // 数值中用来表示N/A的值

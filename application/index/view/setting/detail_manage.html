@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <link rel="Shortcut Icon" href="/static/favicon.ico"> -->
+    <link href="/static/css/static.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/equip_manage.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/validform.css" rel="stylesheet" type="text/css">
+    <script>
+        var em_enbale="{$Think.lang._COMMOM_ENABLED_}";//启用
+        var UPS_NOTHING="{$Think.lang._UPS_NOTHING_}";//无
+
+        var WARN_EM_MAX_DEV="{$Think.lang._WARN_EM_MAX_DEV_}";//超过设备上限
+    </script>
+    <script src="/static/js/require.js" data-main="/static/js/page_action/detail_manage.js"></script>
+    <title>西人马智慧创联系统</title>
+</head>
+<body class="statics_bg" id="EquipmanageUPSseting_body">
+
+{include file="pub/header"}
+{include file="pub/nav"}
+<section class="statics_section">
+   <!--顶部导航开始-->
+   <header class="statics_header">
+   </header>
+   <!--顶部导航结束-->
+    <form class="EqmSetform">
+   <!--内容开始-->
+    <section  class="esUPS_cotainer">
+       <figure  class="es_table_title">
+           <figcaption id="Emm_title">
+               <span></span>
+           </figcaption>
+               <span class="es_table_container" id="upssetting_ul">
+               <ul>
+                   <li >名称</li>
+                   <li >
+                       <input type="text" name="EmaC_name" altercss="grey_note"  datatype="name"  errormsg="{$Think.lang._ERR_FORMAT_}" >
+                       <div class="info">
+                           <span class="Validform_checktip"></span>
+                           <span class="dec">
+                               <a class="dec1"></a>
+                           </span>
+                       </div>
+                       <i class="warning">*</i>
+                   </li>
+               </ul>
+              </span>
+       </figure>
+
+       <span class="bottom_button">
+          <button  type="button" class="input_4" id="EmaC_apply">
+            <span><!--确认-->{$Think.lang._COMM_CONFIRM_}</span>
+          </button>
+          <button  type="button" class="input_4" id="EmaC_delete">
+            <span><!--取消-->{$Think.lang._COMM_CANCEL_}</span>
+          </button>
+      </span>
+    </section>
+</form>
+     <!--内容结束-->
+</section>
+
+</body>
+</html>
