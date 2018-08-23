@@ -38,4 +38,43 @@ class Vibration extends ControllerBase
             return json_encode($result);
         }
     }
+
+    public function get_conf()
+    {
+        $input = request()->put();
+        $result = model('CSensor')->get_conf(TYPE_VIBRATION_SENSOR, $input);
+
+        if($result == null)
+        {
+            return $this->ajaxReturnCode(CODE_FAILED); 
+        }
+        else
+        {
+            foreach ($result as $key => $value) {
+                unset($result[$key]['Hthreshold']);
+                unset($result[$key]['Lthreshold']);
+            }
+            return json_encode($result);
+        }
+    }
+
+    public function set_conf()
+    {
+        $input = request()->put();
+        $config = json_decode($input['config'], true);
+
+        $where = array('sensor_id' => $input['devID'],
+                      'sensor_type' => TYPE_VIBRATION_SENSOR);
+
+        $result = model('CSensor')->set_conf($config, $where);
+
+        if($result == null)
+        {
+            return $this->ajaxReturnCode(CODE_FAILED); 
+        }
+        else
+        {
+            return $this->ajaxReturnCode(CODE_SUCCESS); 
+        }
+    }
 }

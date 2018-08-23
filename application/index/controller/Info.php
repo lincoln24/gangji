@@ -67,7 +67,7 @@ class Info extends ControllerBase
         $input = request()->put();
         $i = 0;
 
-        $zoneList = model('Czone')->get_zone_list($input['user_id']);
+        $zoneList = model('CZone')->get_zone_list($input['user_id']);
         $sensorList = $zoneList;
 
         foreach ($zoneList as $key => $value) {

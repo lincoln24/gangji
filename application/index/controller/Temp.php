@@ -15,8 +15,7 @@ class Temp extends ControllerBase
     {
         $input = request()->put();//传来的数据一定要带有content-type:application/json的头
 
-        $sqlToDo = "select s.sensor_id as SensorId,s.name as Name,t.temp as Temp,t.status,";
-        $sqlToDo .= "s.h_threshold as Hthreshold,s.l_threshold as Lthreshold";
+        $sqlToDo = "select s.sensor_id as SensorId,s.name as Name,t.temp as Temp,t.status";
         $sqlToDo .= " FROM c_sensor s inner join d_temp_data t on s.sensor_id=t.sensor_id where s.sensor_type=" . TYPE_TEMP_SENSOR;
 
         if (isset($input['sensor_id']))
@@ -62,6 +61,41 @@ class Temp extends ControllerBase
         else
         {
             return json_encode($result);
+        }
+    }
+
+    public function get_conf()
+    {
+        $input = request()->put();
+        $result = model('CSensor')->get_conf(TYPE_TEMP_SENSOR, $input);
+
+        if($result == null)
+        {
+            return $this->ajaxReturnCode(CODE_FAILED); 
+        }
+        else
+        {
+            return json_encode($result);
+        }
+    }
+
+    public function set_conf()
+    {
+        $input = request()->put();
+        $config = json_decode($input['config'], true);
+
+        $where = array('sensor_id' => $input['devID'],
+                      'sensor_type' => TYPE_TEMP_SENSOR);
+
+        $result = model('CSensor')->set_conf($config, $where);
+
+        if($result == null)
+        {
+            return $this->ajaxReturnCode(CODE_FAILED); 
+        }
+        else
+        {
+            return $this->ajaxReturnCode(CODE_SUCCESS); 
         }
     }
 

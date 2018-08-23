@@ -31,11 +31,11 @@
            <figcaption id="Emm_title">
                <span></span>
            </figcaption>
-               <span class="es_table_container" id="upssetting_ul">
+               <span class="es_table_container" id="equip_setting_ul">
                <ul>
-                   <li >名称</li>
+                   <li >名称:</li>
                    <li >
-                       <input type="text" name="EmaC_name" altercss="grey_note"  datatype="name"  errormsg="{$Think.lang._ERR_FORMAT_}" >
+                       <input type="text" name="EmaC_Name" altercss="grey_note"  datatype="name"  errormsg="{$Think.lang._ERR_FORMAT_}" >
                        <div class="info">
                            <span class="Validform_checktip"></span>
                            <span class="dec">
@@ -45,6 +45,56 @@
                        <i class="warning">*</i>
                    </li>
                </ul>
+               <ul>
+                   <li>型号</li>
+                   <li>
+                       <select name="EmaC_Model" id="Ema_Model">
+                       </select>
+                   </li>
+               </ul>
+               <ul>
+                   <li>编号</li>
+                   <li>
+                       <input type="text" name="EmaC_Number" errormsg="{$Think.lang._ERR_FORMAT_}">
+                   </li>
+               </ul>
+               <ul>
+                   <li>通信地址</li>
+                   <li>
+                       <input type="text" name="EmaC_Address" errormsg="{$Think.lang._ERR_FORMAT_}">
+                   </li>
+               </ul>
+               <ul>
+                   <li>所属区域</li>
+                   <li>
+                       <select name="EmaC_ZoneId" id="Ema_ZoneId">
+                       </select>
+                   </li>
+               </ul>
+               <ul>
+                   <li>通信超时时间:</li>
+                   <li>
+                       <select name="EmaC_Overtime">
+                           <option value="5">5秒</option>
+                           <option value="10">10秒</option>
+                           <option value="15">15秒</option>
+                           <option value="30">30秒</option>
+                           <option value="60">60秒</option>
+                       </select>
+                   </li>
+               </ul>
+               <ul>
+                   <li>数据存储间隔时间:</li>
+                   <li>
+                       <select name="EmaC_DatasaveSpan">
+                           <option value="2">2分钟</option>
+                           <option value="5">5分钟</option>
+                           <option value="10">10分钟</option>
+                           <option value="30">30分钟</option>
+                           <option value="60">60分钟</option>
+                       </select>
+                   </li>
+               </ul>
               </span>
        </figure>
 
@@ -52,7 +102,7 @@
           <button  type="button" class="input_4" id="EmaC_apply">
             <span><!--确认-->{$Think.lang._COMM_CONFIRM_}</span>
           </button>
-          <button  type="button" class="input_4" id="EmaC_delete">
+          <button  type="button" class="input_4" id="EmaC_cancel">
             <span><!--取消-->{$Think.lang._COMM_CANCEL_}</span>
           </button>
       </span>

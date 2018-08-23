@@ -4,9 +4,9 @@ namespace app\common\model;
 use think\Db;
 use think\Model;
 
-class Czone extends Model
+class CZone extends Model
 {
-    public static function get_zone_list($user_id)
+    public function get_zone_list($user_id)
     {
         $result = Db::table('c_user')
         ->field('zone')
@@ -35,31 +35,42 @@ class Czone extends Model
         return $result;
     }
 
-    public static function get_zone_detail($zone_id)
+    public function get_zone_detail($zone_id)
     {
-        $result = Db::table('c_zone')
-        ->field('zone_desc as name,zone_stat as ZoneStat')
-        ->where(array(
-            'zone_id' => $zone_id))
-        ->select();
+        $result = $this->field('zone_desc as Name,zone_stat as ZoneStat')
+                    ->where(array(
+                        'zone_id' => $zone_id))
+                    ->select();
 
         return $result[0];
     }
 
-    public static function add_zone($data)
+    public function set_zone($zone_id=0,$data)
     {
-        Db::name('c_zone')
-            ->data($data)
-            ->insert();
+        $result = $this->field('zone_id')
+                    ->where(array(
+                        'zone_id' => $zone_id))
+                    ->find();
 
-        $zoneId = Db::name('c_zone')->getLastInsID();
+        if($result == null)//id不存在
+        {
+            $result = $this->save($data);
+        }
+        else//id已存在
+        {
+           $result = $this->where('zone_id', $zone_id)
+                        ->data($data)
+                        ->update();
+        }
 
-        return $zoneId;
+        // $zoneId = Db::name('c_zone')->getLastInsID();
+
+        return $result;
     }
 
-    public static function delete_zone($zoneId)
+    public function delete_zone($zoneId)
     {
-        $result = Db::table('c_zone')->where('zone_id',$zoneId)->delete();
+        $result = $this->where('zone_id',$zoneId)->delete();
 
         return $result;
     }

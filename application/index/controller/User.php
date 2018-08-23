@@ -2,9 +2,9 @@
 namespace app\index\controller;
 
 use think\Db;
-use app\common\controller\ControllerBase;
+use think\Controller;
 
-class User extends ControllerBase
+class User extends Controller
 {
     public function index()
     {
@@ -12,12 +12,12 @@ class User extends ControllerBase
 
     public function user_log_in()
     {
-       $name = input('request.name');
-       $password = input('request.password');
-
+        $input = request()->put();
+        $name = $input['user_name'];
+        $password = $input['user_passwd'];
 
         $result = Db::table('c_user')
-        ->field('id')
+        ->field('id as UserId')
         ->where(array(
             'user_name' => $name,
             'user_passwd' => $password))
@@ -29,7 +29,7 @@ class User extends ControllerBase
         }
         else
         {
-            return json_encode($result);
+            return json_encode($result[0]);
         }
     }
 
@@ -37,11 +37,11 @@ class User extends ControllerBase
     {
         $input = request()->put();
 
-        $result = model('Czone')->get_zone_list($input['user_id']);
+        $result = model('CZone')->get_zone_list($input['user_id']);
 
         if($result == null)
         {
-            return $this->ajaxReturnCode(CODE_FAILED); 
+            return $result; 
         }
         else
         {
