@@ -1,0 +1,97 @@
+.pagination { display: inline-block; line-height:1rem;overflow: hidden; }
+
+.pagination a {
+  text-indent: 0;
+  display: block;
+  float: left;
+  height: 1rem;
+  margin:0 0.15rem;
+  padding:0 0.3rem;
+  outline: none;
+  border-radius: 0.25rem;
+  border: 0.05rem solid #CDCDCD;
+  color: #000;
+  font-size:0.6rem;
+  font-weight:600;
+  text-align: center;
+  text-decoration: none;
+  background-color: #FFF;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFF), color-stop(100%, #EEE));
+  background-image: -webkit-linear-gradient(#FFF, #EEE);
+  background-image: linear-gradient(#FFF, #EEE);
+}
+.pagination a.last,.pagination a.first{ width:auto; padding:0 0.5rem;border: 0.05rem solid #CDCDCD;}
+.pagination a:hover, .pagination a:focus{
+  border: 0.05rem solid #F0F0F0;
+  background-color: #EBEBEB;
+  color:#0B82D9;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFF), color-stop(100%, #F5F5F5));
+  background-image: -webkit-linear-gradient(#FFF, #F5F5F5);
+  background-image: linear-gradient(#FFF, #F5F5F5);
+  box-shadow:        0.05rem 0.05rem 0.1rem #999;
+  -moz-box-shadow:   0.05rem 0.05rem 0.1rem #999;
+  -webkit-box-shadow: 0.05rem 0.05rem 0.1rem #999; }
+.pagination a:active{
+  border: 0.05rem solid #EBEBEB;
+  background-color: #EBEBEB;
+  box-shadow:        0.05rem 0.05rem 0.05rem #CCC ;
+  -moz-box-shadow:   0.05rem 0.05rem 0.05rem #CCC;
+  -webkit-box-shadow: 0.05rem 0.05rem 0.05rem #CCC;
+}
+.pagination a.disabled, .pagination a.disabled:hover, .pagination a.disabled:focus, .pagination a.disabled:active {
+  border: 0.05rem solid #ccc;
+  background-color: #F5F5F5;
+  background-image:none;
+  color:#999;
+  cursor: default;
+  box-shadow:        0 0 0 ;
+  -moz-box-shadow:   0 0 0 ;
+  -webkit-box-shadow: 0 0 0 ; }
+
+.pagination a:first-child ,.pagination a:last-child
+{
+  border: 0.05rem solid #CDCDCD;
+  width:auto;
+  border-radius: 0.25rem;
+  padding:0 0.5rem;}
+
+.pagination input {
+  float: left;
+  border-radius: 0.25rem;
+  margin: 0 0.15rem;
+  padding: 0 ;
+  width: 2.5rem;
+  height: 1rem;
+  outline: none;
+  border: 0.05rem solid #CDCDCD;
+  text-align: center; }
+
+/* gigantic class for demo purposes */
+.gigantic.pagination {
+  margin: 1.5rem 0; }
+
+.gigantic.pagination a {
+  height: 3rem;
+  /*width: 3rem;*/
+  font-size: 2.5rem;
+  line-height: 2.5rem; }
+
+.gigantic.pagination input {
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.5rem; }
+
+/* log element for demo purposes */
+.log {
+  display: none;
+  background-color: #EDEDED;
+  border: 0.05rem solid #B4B4B4;
+  height: 15rem;
+  width: 26.2rem;
+  overflow: auto;
+  margin-left: 0;
+  list-style: none;
+  padding: 0.5rem; }
+.log li {
+  margin-top: 0;
+  margin-bottom: 0.25rem; }

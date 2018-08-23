@@ -1,0 +1,70 @@
+
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+	margin-left:0.4rem;
+	line-height:1rem;
+	height:1rem;
+	overflow:hidden;
+	color:#999;
+	font-size:0.6rem;
+}
+.Validform_right{
+	color:#71b83d;
+	/*padding-left:1rem;*/
+	/*background:url(../ixx/right.png) no-repeat left center;*/
+}
+.Validform_wrong{
+	color:red;
+	/*padding-left:1rem;*/
+	white-space:nowrap;
+	/*background:url(../ixx/error.png) no-repeat left center;*/
+}
+.Validform_loading{
+	/*padding-left:1rem;*/
+	/*background:url(../ixx/onLoad.gif) no-repeat left center;*/
+}
+.Validform_error{
+	background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 0.6rem/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:14rem; -webkit-box-shadow:0.1rem 0.1rem 0.15rem #aaa; -moz-box-shadow:0.1rem 0.1rem 0.15rem #aaa; background:#fff; position:absolute; top:0; right:2.5rem; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg .iframe{position:absolute; left:0; top:-0.05rem; z-index:-1;}
+#Validform_msg .Validform_title{line-height:1.25rem; height:1.25rem; text-align:left; font-weight:bold; padding:0 0.4rem; color:#fff; position:relative; background-color:#000;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:1.1rem; position:absolute; right:0.4rem; top:0; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:0.4rem;border:0.05rem solid #000; border-top:none; text-align:left;}
+
+
+
+
+
+.Validform_checktip{margin-left:0;}
+.info,.info1{
+	border:0.05rem solid #ccc;
+	padding:0.1rem 1rem 0.1rem 0.25rem;
+	color:#666;
+	position:absolute;
+	display:none;
+	line-height:1rem;
+	background-color:#fff;
+	z-index: 2000;
+}
+.dec{
+	width: 0;
+	height: 0;
+	border-left: 0.5rem solid transparent;
+	border-right: 0.5rem solid transparent;
+	border-top: 0.4rem solid #ccc;
+	position:absolute;
+	bottom: -0.4rem;
+	left: 0.5rem;
+}
+.dec1 {
+	width: 0;
+	height: 0;
+	border-left: 0.4rem solid transparent;
+	border-right: 0.4rem solid transparent;
+	border-top: 0.4rem solid #fff;
+	position:absolute;
+	bottom: 0.05rem;
+	left: -0.4rem;
+}

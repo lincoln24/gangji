@@ -64,41 +64,6 @@ class Temp extends ControllerBase
         }
     }
 
-    public function get_conf()
-    {
-        $input = request()->put();
-        $result = model('CSensor')->get_conf(TYPE_TEMP_SENSOR, $input);
-
-        if($result == null)
-        {
-            return $this->ajaxReturnCode(CODE_FAILED); 
-        }
-        else
-        {
-            return json_encode($result);
-        }
-    }
-
-    public function set_conf()
-    {
-        $input = request()->put();
-        $config = json_decode($input['config'], true);
-
-        $where = array('sensor_id' => $input['devID'],
-                      'sensor_type' => TYPE_TEMP_SENSOR);
-
-        $result = model('CSensor')->set_conf($config, $where);
-
-        if($result == null)
-        {
-            return $this->ajaxReturnCode(CODE_FAILED); 
-        }
-        else
-        {
-            return $this->ajaxReturnCode(CODE_SUCCESS); 
-        }
-    }
-
     protected function add_status($result)
     {
         foreach ($result as $key => $value)

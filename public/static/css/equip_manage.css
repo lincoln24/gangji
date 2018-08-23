@@ -1,0 +1,242 @@
+@charset "utf-8";
+/* CSS Document */
+.Ema_figure{
+	background:#FFF;
+	border:0.05rem solid #D7D7D9;
+	padding:0;
+	overflow:hidden;
+	display: block;
+	clear: both;
+	margin:0 0 0.75rem 0;
+}
+.Ema_figcaption{ background:#F7F7F7; height:1.5rem; line-height:1.5rem;}
+.Ema_figurecotainer{ margin:1.5rem auto; width:95%; overflow:hidden;}
+
+
+.gradient{
+	color:#dff3fd;
+	display:block;
+	float:left;
+	border:0.05rem solid #C3ECE7;
+	margin:1.5em;
+    background: #033f5e;
+    background: -moz-linear-gradient(top,  #033f5e 0%,#1d7ea7 50%,#3ad3f6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1d7ea7),color-stop(50%,#1d7ea7), color-stop(100%,#3ad3f6));
+    background: -webkit-linear-gradient(top,  #033f5e 0%,#1d7ea7 50%,#3ad3f6 100%);
+    background: -o-linear-gradient(top,  #033f5e 0%,#1d7ea7 50%,#3ad3f6 100%);
+    background: -ms-linear-gradient(top,  #033f5e 0%,#1d7ea7 50%,#3ad3f6 100%);
+    background: linear-gradient(to bottom,  #033f5e 0%,#1d7ea7 50%,#3ad3f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#033f5e', endColorstr='#3ad3f6',GradientType=0 );
+	border-radius:0.25rem;
+	-moz-border-radius:0.25rem;
+	-webkit-border-radius:0.25rem;
+	z-index:0;
+	position: relative;
+}
+.gradient_grey{
+	color:#808080;
+	display:block;
+	float:left;
+	border:0.05em solid #C7C7C7;
+	margin:1.5em;
+	background: #ccc;
+	background: -moz-linear-gradient(top,  #BFBFBF 0%,#E4E3E3 50%,#F2F2F2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#BFBFBF),color-stop(50%,#E4E3E3), color-stop(100%,#F2F2F2));
+	background: -webkit-linear-gradient(top,  #BFBFBF 0%,#E4E3E3 50%,#F2F2F2 100%);
+	background: -o-linear-gradient(top,  #BFBFBF 0%,#E4E3E3 50%,#F2F2F2 100%);
+	background: -ms-linear-gradient(top,  #BFBFBF 0%,#E4E3E3 50%,#F2F2F2 100%);
+	background: linear-gradient(to bottom,  #BFBFBF 0%,#E4E3E3 50%,#F2F2F2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BFBFBF', endColorstr='#F2F2F2',GradientType=0 );
+	border-radius:0.25rem;
+	-moz-border-radius:0.25rem;
+	-webkit-border-radius:0.25rem;
+	z-index:2;
+	position: relative;
+}
+.gradient_grey .Emanage_snall_title,.gradient .Emanage_snall_title{
+	display:block;
+	width:90%;
+	height: 1.25rem;
+	margin:0.5rem 1.5rem 0.5rem 0.15rem;
+	text-align:center;
+	float:left;
+	font-size:0.7rem;
+}
+.gradient_grey .Emanage_snall_title{
+	border-bottom:0.05rem solid #AEAEAE;
+}
+.gradient .Emanage_snall_title{
+	border-bottom:0.05rem solid #589917;
+}
+.gradient img,.gradient_grey img{ padding:0.5rem 1rem;width: 4rem;height: 5rem;}
+.Emm_aside_name{position: absolute; text-align: center; width: 100%;overflow: hidden;}
+.ema_UPS_checkbox{margin-right:0.15rem;display:none}
+/*PUE*/
+.ema_c{ display:block; padding:0.5rem;overflow:hidden; background:#FFF;text-indent:0;}
+.Ema_pue{line-height:1.5rem;}
+
+.Ema_pue_r{float:left;width:30%;text-indent:0;}
+.Ema_pue_m{float:left;width:8%; height:22.5rem; line-height:11.25rem; margin:0; padding:0; text-indent:0; text-align:center;}
+.Ema_pue_l{float:left;width:62%; text-indent:0;}
+.Ema_pue_lt{display:block;}
+.Ema_pue_lb{margin-right:0.5rem;}
+
+.aevent_cotainer_span{ 
+    border:0.1rem solid #f6f6f6;
+	display:block; 
+	margin:0.5rem;
+	padding:0 1rem;
+	overflow:hidden;
+	border-radius:0.15rem;
+	-moz-border-radius:0.15rem;
+	-webkit-border-radius:0.15rem;
+	/*z-index:2;*/
+	position: relative; 
+	min-height:7.75rem;
+	margin-bottom:1.75rem;
+	color:#000;}
+
+.EmaPUE_bottom_button{bottom:0.25rem; right:0.25rem; position:absolute; }
+.Ema-tree{ margin-left:0.5rem; display:block;  font-size:0.6rem; min-height:22.5rem;}
+.Ema-tree span{ display:block;}
+.Ema-tree .Ema-tree-li{ margin-left:1.5rem; overflow:hidden;line-height:1.25rem; height:1.25rem; }
+.aevent_cotainer_span  .Ema-tree-li{ display: inline-block; float: left;margin-left:1.5rem; }
+
+/*开关量*/
+.ema_cotainer{
+	margin:0;
+	padding: 0;
+	tab-index: 0;
+	background:#FAFAFA;
+	border:0.05rem solid #C1C1C1;
+	border-radius:0.25rem;
+	-moz-border-radius:0.25rem;
+	-webkit-border-radius:0.25rem;
+	z-index:2;
+	position: relative;
+	display: table;
+	width:99.5%;
+	margin-bottom: 0.5rem;
+}
+.ema_cotainer_l{
+	display: table-cell;
+	vertical-align:middle;
+	text-align: center;
+	width:15%;
+	height: 7.5rem;
+	color:#1972D2;
+	font-size:0.8rem;}
+.Ema_cotainer_r{width:85%;  border-left:0.05rem solid #C1C1C1; background:#FFF;display: table-cell;
+	border-radius:0 0.25rem 0.25rem 0;
+	-moz-border-radius:0 0.25rem 0.25rem 0;
+	-webkit-border-radius:0 0.25rem 0.25rem 0;}
+.Ema_cotainer_rt{ position:relative; padding:2.5rem 1.5rem;color:#000; font-size:0.7rem; }
+.EmaSetting_img_cotainer td label{ background:#F3F3F3; float:left; margin:0; padding:0.5rem 0 0 0; text-indent:0;}
+
+.EmaSwitch_setting table{text-indent:0; width:60%; float: left; margin-left: 5rem;}
+.Ema_switch_checkbox{ display:none;}
+.Emanage_switchtit{ width: 100%;}
+.switch_table{width:85%; margin:0; padding:0;}
+.switch_table td{ text-indent: 0;}
+.EmaS_img_label,.EmaS_radio_label{ display: block; float:left;overflow: hidden;}
+.EmaS_radio_label{min-width:7rem;}
+.EmaS_img_label{width:4rem; height:4.5rem; padding: 0.25rem 0; text-align: center;margin: 0 3rem 0 0;}
+.EmaS_img_label img{ width:2.5rem; height:4rem;}
+.EmaModels_cotainer{ border-top:0.05rem solid #C1C1C1;padding:0 0.25rem 0 1.5rem; height: 10rem;}
+/*机房图*/
+.MReqip-bg{
+	overflow:hidden;
+	text-align:center;
+	background:#D1E4F5;
+	float:left;
+	margin:0.5rem;
+	padding:0.4rem;
+	color:#3583D7;
+	line-height:0.75rem;}
+.MReqipBg_p{ width:3rem; height: 1rem; margin: 0 auto; overflow: hidden; }
+.Ema_RoomMap_l{float:left;width:70%; text-indent:0;}
+.RoomMap_cotainer{overflow:hidden;  text-align:center;	padding-left: 10%;}
+.Map_container{ margin: 0 auto;width:90%;}
+.moveItem,.lockItem{
+	width: 0.75rem;
+	height: 0.75rem;
+	position: absolute;
+	background: url("../ixx/blue_cirle.png") no-repeat center;
+	border: none;
+	background-size: 100% 100%;
+    z-index: 100;
+
+}
+.grayscale{background:#ccc; color: #fff;}
+/*机房图*/
+.Ema_RoomMap_l .RoomMap{
+	width:100%;
+	height:23rem;
+    background: no-repeat;
+	background-size: 100% 100%;
+	clear:both;
+	border-radius:0.25rem;
+	-moz-border-radius:0.25rem;
+	-webkit-border-radius:0.25rem;
+	z-index:0;
+	position: relative;
+}
+.roomFile_cotainer{ text-align:left; color:#000; font-size:0.7rem;display:block;width:90%; margin:0 auto;}
+
+#Map_cotiner{overflow-y:auto;}
+.Map_cotiner_span{display: block;  overflow: hidden; margin-top: 0.5rem;}
+#Map_cotiner a{ display: block; float: left; padding: 0 0.25rem; line-height: 1rem;}
+.mapEq_all{
+    background:#00CCFF;
+    color: #fff;
+    border-radius:0.15rem;
+    -moz-border-radius:0.15rem;
+    -webkit-border-radius:0.15rem;}
+.Map_img{
+    width: 3.15rem;
+    height: 5rem;
+	background: no-repeat;
+    background-position: center;
+    background-size:90%; }
+
+#equip_setting_ul ul{ width: 65%; margin-left: 6%;}
+#equip_setting_ul ul input{ width: 8rem;}
+#equip_setting_ul ul select{ width: 8.15rem;}
+#equip_setting_ul ul li{ display: block; width: 25%; float: left; height: 1.5rem;}
+.RoomMap_save{float: right;margin-right: 0.5rem;}
+/*串口*/
+#serialport_table select{ min-width: 5rem;}
+/*门禁*/
+.action_delete{
+	background: url("../ixx/Equipmanage/DC_delete.png") no-repeat center 0;
+	margin-right: 1.9rem;
+}
+.EguardDooropenEdit{
+	background: url("../ixx/Equipmanage/DC_edit.png") no-repeat center 0;
+}
+.action_delete,.EguardDooropenEdit{
+	display: inline-block;
+	width: 1.3rem;
+	height: 1.3rem;
+	vertical-align: middle;
+}
+
+.DControl_table{
+	width:98%;
+	margin: 0.5rem auto;
+}
+.DControl_table td{ padding-left: 1rem;}
+.DControl_table_td{
+	padding-right: 1rem;
+	background: #F3FBE8;
+	text-align: right;
+	border-right: 0.05rem solid #85DC1E;
+}
+.DControl_table tr{
+	border: 0.05rem solid #85DC1E;
+}
+.DControl_table label{
+	width: 7.5rem;
+	display: block;
+	float: left;
+}

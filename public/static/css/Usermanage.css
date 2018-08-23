@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+/*创建新用户*/
+
+.UmNew_textarea{width:45%;height:5rem;max-height:12.5rem;max-width:27.5rem;border:0.05rem solid #ccc; border-radius:0.15rem;}
+#alarm_start_time,#alarm_end_time,#UmmNo_start_time,#UmmNo_end_time{width: 4rem;}
+.notmanage_w{float: left; color: #000; font-size: 0.6rem;}
+
+/*系统设置*/
+.right_bottom_cotainer{ clear:both; float:right; margin-top:-2.5rem; display:block; width:25%;}
+.net_cotainer{
+    clear:both;
+    border:0.1rem solid #D3EEFF;
+    display:block;
+    width:65%;
+    margin-left:2rem;
+    margin-top:1.5rem;
+    text-indent: 0;
+    padding:1rem 0;
+    border-radius:0.25rem;
+    -moz-border-radius:0.25rem;
+    -webkit-border-radius:0.25rem;
+    z-index:2;
+}
+.net_name{
+    background:#D3EEFF;
+    padding:0 1.25rem;
+    margin-left: 1rem;
+    color:#1972D2;
+    position:absolute;
+    text-indent:0;
+    margin-top:-2rem;
+    border-radius:0.15rem;
+    -moz-border-radius:0.15rem;
+    -webkit-border-radius:0.15rem;
+    z-index:2;
+}
+.sys_width input[type=text]{ width:2.5rem!important; }
+.sys_message_longwidth tbody tr td input[type=text]{width:12.5rem!important;}
+
+
+.redesign_ul{ width: 12.5rem; padding: 0.5rem 0 0.5rem 1.5rem; overflow: hidden;}
+.redesign_ul input{ width: 6rem;}
+.redesign_ul_odd{width: 35%; text-align: left }
+.redesign_ul li{ line-height: 1.25rem; float: left;}

@@ -8,10 +8,13 @@ class CSensor extends Model
 {
     // protected $table='c_sensor';
 
-    public function get_conf($sensor_type,$input)
+    public function get_conf($input)
     {
         $where = array();
-        $where['sensor_type'] = $sensor_type;
+        if (isset($input['type']))
+        {
+            $where['sensor_type'] = $input['type'];
+        }
         if (isset($input['dev_id']))
         {
             $where['sensor_id'] = $input['dev_id'];

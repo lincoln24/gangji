@@ -1,0 +1,461 @@
+@charset "utf-8";
+
+/* UPS */
+.esUPS_cotainer{ height:100%; margin:0; padding:0; overflow:hidden; }
+.esUPS_cotainer div{
+	background:#FFF;
+	float: left;
+	margin-bottom:0.5rem;
+	-moz-box-shadow:0 0 0.15rem #DBDBDB;
+	-webkit-box-shadow:0 0 0.15rem #DBDBDB;
+	box-shadow:0 0 0.15rem #DBDBDB;
+}
+
+.esUPS_container_r{width:36%; float:left;}
+.esUPS_state_cotainer{width:100%;  display:table;}
+.esUPS_state{width:50%; text-align:center;display:table-cell; vertical-align:middle;}/*左 垂直居中*/
+.vertical_mindde_r{width:50rem;display:table-cell; vertical-align:middle;}/*右 垂直居中*/
+.esUPS_state p,.esUPS_state span{ line-height:1.5rem;}
+.esUPS_state .small_font{font-size:0.6rem;}
+.esUPS_img{
+	display: block;
+	width: 40%;
+	height:80%;
+	margin: 0 auto;
+	background-size: 100% 100%;
+	-moz-background-size:100% 100%;
+	-webkit-background-size:100% 100%;
+	-o-background-size:100% 100%;
+	background-repeat: round;
+	position: relative;
+}
+.esUPS_battery_img{
+	display: block;
+	width: 45%;
+	height:60%;
+	margin: 0 auto;
+	background: no-repeat center;
+	background-size: 100% 100%;
+	background-repeat: round;
+}
+.esUPS_batterygroup_img{
+	display: block;
+	width: 50%;
+	height:65%;
+	margin: 0 auto;
+	background: no-repeat center;
+	background-size: 100% 100%;
+	background-repeat: round;
+}
+.esUPS_air_img{
+	display: block;
+	width: 60%;
+	height:55%;
+	margin: 0 auto;
+	background: no-repeat center;
+	background-size: 100% 100%;
+	background-repeat: round;
+}
+.esUPS_elec_img{
+	display: block;
+	width: 45%;
+	height:55%;
+	margin: 0 auto;
+	background: no-repeat center;
+	background-size: 100% 100%;
+	background-repeat: round;
+}
+.esUPS_pdu_img{
+	display: block;
+	width: 70%;
+	height:25%;
+	margin: 0 auto;
+	background: no-repeat center;
+	background-size: 100% 100%;
+	background-repeat: round;
+}
+.esUPS_state_h{ height: 10rem;}
+
+.esUPS_container_l{width:64%; float:left; overflow:hidden;}
+.esUPS_voltage{width:24%;margin-left:1%; overflow:hidden; text-align:center;}
+.esUPS_voltage a{cursor: default;}
+.esUPS_voltage p,.esBattery p,.esAir_r p{ display:block; margin:0 auto;cursor: default;  }
+.esUPS_voltage_title{
+    width:90%;
+	margin: 0 auto;
+	height:25%;
+	line-height:2.5rem;
+	border-bottom:0.05rem solid #ddd;
+	background:no-repeat  right center;
+	font-size:0.8rem;
+	font-weight: bold;
+}
+.esUPS_voltage_data{/*垂直居中 1行*/
+	display: block;
+	font-size:2rem;
+	line-height: 3.5;
+	width: 100%;
+	height: 75%;
+	vertical-align: middle;
+	cursor: default;
+}
+
+.esUPS_data_img{width: 43%; height: 60%; margin-top: 15%;}
+.esUPS_voltage_chart{width:100%;margin-left:1%; height:10.15rem;}
+
+.esUPS_data_cotainer{width:100%; overflow:hidden;}
+.esUPS_data_title{width:14%; float:left; text-align:center; font-size:0.8rem;border-right:0.05rem dashed #CCC; margin:1.25rem 0;}
+.esUPS_title{
+	border-bottom:0.05rem solid #ddd;
+	display:block;
+	text-align:center;
+	width:90%;
+	padding:0.4rem 0 0.25rem 0;
+	margin: 0 auto;
+	}
+.esUPS_title_text{background:#FFF; font-size:0.9rem; position:relative;padding:0 1rem; font-weight:600;}
+
+
+.Em_UPS_td td{ padding:0 3rem;}/*表格  视觉水平居中*/
+/*即使控制  弹窗*/
+.esUPS_topop{
+	margin:0; 
+	position:absolute;
+	text-align:center; 
+	padding:0.75rem 0.75rem 0.75rem 1.5rem; 
+	border:0.05rem solid #54B6F2;
+	font-size:0.6rem;
+	background-color:#fff;
+	min-width:17.5rem;
+	-moz-box-shadow:0 0 0.5rem #54B6F2 inset;
+	-webkit-box-shadow:0 0 0.5rem #54B6F2 inset;
+	box-shadow:0 0 0.5rem #54B6F2 inset;
+	border-radius:0.25rem;
+	-moz-border-radius:0.25rem; 
+	-webkit-border-radius:0.25rem;
+	z-index:99;
+	display:none; 
+	}
+.esUPS_topop_UPS{left:-29%;}
+.esUPS_topop li{text-align:left; line-height:1.25rem;}
+.esUPS_li_t{ line-height:1.25rem; color:#3f87D6; border-bottom:0.05rem solid #EFEFEF; font-size:0.6rem;padding-top:0.25rem;}
+#esUPS_li_bb{text-align:center;}
+#esUPS_li_bb img{float:left; margin-top:0.3rem;}
+#triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 0.75rem solid #54B6F2;
+	position:absolute;
+	margin-left:40%;
+	margin-top:-1.5rem;
+}
+#triangle-up_in {
+    width: 0;
+    height: 0;
+    border-left: 0.95rem solid transparent;
+    border-right: 0.95rem solid transparent;
+    border-bottom: 0.75rem solid #cae8fd;
+	position:absolute;
+	margin-left:-0.95rem;
+	margin-top:0.1rem;
+}
+
+.tableLeft_ico{position:absolute; left:1rem; bottom:1rem;}
+.tableRight_ico{position:absolute; right:1rem; bottom:1rem;}
+
+#ups_rated_message{top:50%; left: 50%; min-width:10rem; padding: 0.5rem 0.5rem 0.5rem 1rem;}
+#ups_rated_message span,#ups_rated_message p{line-height: 1rem;}
+
+/* 收缩栏 */
+.aside_cotainer{position:absolute; right:-13rem; top:0;height:100%;width:12.2rem;z-index:9;}
+.aside_bg{
+	position:absolute;
+	height:100%;
+	width:12.7rem;
+	background-color:rgba(51, 163, 244,0.4);
+	border:0.15rem solid #33A3F4; 
+	z-index:10;
+	display:table;
+	}
+.aside_input{
+	display:table-cell;
+	line-height:2.5rem;
+	text-align:center;
+	vertical-align:middle;
+	width: 100%;
+}
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+ .aside_bg{
+	height:100%; 
+	width:12.7rem;
+	position:static;
+	*zoom:1;
+	background:#33A3F4;
+	filter:Alpha(opacity=40);
+	border:0.15rem solid #06C; 
+	z-index:10;
+ }
+ .aside_input{
+	position:relative
+	display:table-cell;
+	line-height:2.5rem;
+	text-align:center;
+	vertical-align:middle;
+ }
+}
+
+.es_arrow{
+	position:absolute; 
+	right:0; 
+	top:50%;
+	z-index:10;}
+
+
+/*计划任务*/
+.five_button_cotainer{float:right;}
+.plan_week_cotainer input[type=checkbox]{
+    position: absolute;
+    opacity:0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);}
+.plan_week_cotainer label{
+	float: left;
+	padding: 0.15rem;
+	color: #fff;
+	margin: 0 0.15rem;
+	font-size: 0.6rem;
+	line-height: 0.75rem;}
+.week_a_Unclick{background: #ccc;}
+.week_a_click{background: #54B6F2;}
+
+/*****电池*/
+/*表格并列*/
+.double_table{ width:100%; float:left; background:#FFF;}
+.esBattery{width:32.3%;margin-left:1%; overflow:hidden; text-align:center;}
+
+.bat0_position{margin-top: 3%; width: 90%;}
+.bat0_position td{ line-height: 2.5rem;}
+
+.paraInfo{
+	text-align: center;
+	background:#fff;
+	font-size: 0.6rem;
+	margin-bottom: 0.5rem;
+}
+.paraInfo td{
+	line-height: 1.4rem;
+	height: 1.4rem;
+	border:0.05rem solid #e0e0e0;
+}
+.paraInfo .bat_grey_bg{
+	text-align: left;
+	background: #f3f3f3;
+	padding-left: 0.75rem;
+}
+.bat_grey_title,.bat_grey_title .bat_grey_bg{background: #64a8df; color: #fff;}
+.tableName,.tableName_singal{
+	clear: both;
+	display: block;
+	color:#8CC640;
+	font-size:0.6rem;
+	line-height: 0.85rem;
+	padding:0 0 0.15rem 1.5rem;
+	margin-bottom: 0.25rem;
+	position: relative;
+}
+.tableName:before{
+	content: url("../ixx/button_ico/edit_green.png");
+	position: absolute;
+	left: 0;
+}
+.tableName_singal:before{
+	content: url("../ixx/button_ico/battery_small_ico.png");
+	position: absolute;
+	left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 空调 */
+.air_r{width:25%; float:left;}
+.air_l{width:75%; float:left; overflow:hidden;}
+.esAir_r{ width:19%;margin-left:1%; overflow:hidden; text-align:center;}
+.ipcotr_l{ min-width:3rem !important; margin:0.25rem 1.5rem 0.25rem 0;}
+.li_table{ width:auto;overflow: hidden;}
+.li_table li{ width:50%;display:block;float:left;line-height: 1.5rem;white-space:nowrap;}
+.li_table span{ float: left;}
+.li_table input{ width:2.5rem; float: right;}
+.UPS_table_mar{ display:block;padding: 1.15rem 0;}
+
+.air_pop_t{ width: auto;}
+.air_pop_t td{ text-align:left;line-height: 1.5rem;white-space:nowrap; text-indent: 0.5rem;}
+.air_pop_t input{width:2.5rem;}
+.esUPS_topop_air{left:-70%; width: auto;}
+/* 三相 */
+.air_bl{ width:49.5%; margin-right:0.5%; overflow:hidden;}
+.air_br{ width:50%; overflow:hidden;}
+
+.esUPS_voltage_ul{
+	width: auto;
+	display:table;
+	font-size:1rem;
+	line-height:2rem;
+	padding-top: 0.75rem;
+	margin: 0 auto;
+	cursor: default;
+}
+.esUPS_voltage_ul li{ display:block;}
+.esUPS_voltage_ul a{ display:table-row;text-align: left;}
+
+
+.elec_tree_chart{width:90%; height:10rem; display:block; margin:1.25rem auto;overflow:hidden; }
+/* 单相 */
+.elec_singal_data{ font-size:1.25rem; height:5.7rem; line-height:5.7rem;}
+/*PDU*/
+.pdu_ul{left:-56%; font-size: 0.6rem; min-width: 27.5rem;}
+.pdu_ul table td{ height: 1.25rem; line-height: 1.25rem;}
+.pdu_ul table tbody input{ height:0.9rem; line-height:0.9rem;}
+/*计划任务*/
+.scheduled_task_input{float:right; margin-top:0.15rem; margin-right:0.5rem;}
+
+/*环境参量*/
+.Env_middle{overflow:hidden;display:block;width:95%; margin:0 auto;}
+
+.Environment_cotainer{
+	background:#B2DEFB;
+	float:left;
+	margin:0.75rem;
+	line-height:2.5rem;
+	padding:0.3rem;
+	border-radius:0.5rem;
+	-moz-border-radius:0.5rem;
+	-webkit-border-radius:0.5rem;
+	z-index:2;
+	position: relative;
+	-webkit-box-shadow:0 0 0.4rem rgba(0, 0, 0, .5);
+	-moz-box-shadow:0 0 0.4rem rgba(0, 0, 0, .5);
+	box-shadow:0 0 0.4rem rgba(0, 0, 0, .5);
+}
+.Environment_cotainer div{
+	background:#FFF;
+	margin:0;
+	padding:0.75rem 1.25rem;
+	display:table;
+	float:left;
+	border-radius:0.15rem;
+	-moz-border-radius:0.15rem;
+	-webkit-border-radius:0.15rem;
+	z-index:2;
+	position: relative;
+}
+.Env_middle a:hover div{ background:#DEEFFB;}
+.Environment_cotainer .EnvirTypeR{padding-right:1rem; margin:0 auto; display:table-cell; vertical-align:middle;}
+.Environment_cotainer .EnvirTypeL{ display:table-cell; vertical-align:middle; text-align:center; color:#5F9FD3;}
+.EnvirTypeL{ font-size: 0.6rem;}
+.EnvirTypeL .text_bold{width:6.5rem;  }
+.EnvirNote{position:absolute; right:0; top:0; color:#FFF;}/*左上角*/
+.EnvirAlarmNum{
+	display: block;
+	width: 1.25rem;
+	height:1.25rem;
+	line-height: 1.25rem;
+	background:center no-repeat;
+	background-size: 100% 100%;
+	position:absolute;
+	right:0;
+	top:0;
+	color:#FFF;
+	font-size:0.8rem;}/*数字*/
+
+.env_chart{ width:99%; height:15rem; margin:0.25rem auto; border:0.05rem solid #E2F4FF; display:block; overflow:hidden;}
+#env_chart,#env_H_chart{ width:100%; height:12.5rem; display:block;overflow:hidden; margin-top:0.75rem;}
+/*图表切换按钮*/
+.es_eTH_button{
+	background:none;
+	background:#D8ECFA;
+	border: 0.05rem solid #249BF2;
+	height:1.5rem;
+	line-height:1.05rem;
+	padding:0.15rem 1.5rem;
+	color:#249BF2;
+	text-indent:0;
+	border-radius:0.25rem;
+	-moz-border-radius:0.25rem;
+	-webkit-border-radius:0.25rem;
+	z-index:2;
+	position: relative; }
+.es_eTH_button_now{
+	background:none;
+	background:#249BF2;
+	border: 0.05rem solid #249BF2;
+	height:1.5rem;
+	line-height:1.05rem;
+	padding:0.15rem 1.5rem;
+	color:#FFF;
+	text-indent:0;
+	border-radius:0.25rem;
+	-moz-border-radius:0.25rem;
+	-webkit-border-radius:0.25rem;
+	z-index:2;
+	position: relative; }
+
+/*摄像头和门禁*/
+.camera_cotainer{overflow:hidden; width:50%; display:block; margin:0 auto;}
+.camera_r{overflow:hidden; display:block; width:50%; float:left;}
+.camera_r span{ margin-left:-11rem; margin-top:2.5rem;  position:absolute;z-index:2;}
+.camera_r img{padding:2.5rem 1.25rem; float:left; }
+
+
+/*通讯模块*/
+.emM_cotainer{width: 95%; margin:0 auto; display: block; overflow: hidden;}
+/*总体信息*/
+.Em_info_cotainer{width:25%; margin-left:12rem; padding:0; float:left;}
+.Em_info_cotainer div{margin-right:0.5rem; padding:0.5rem; float:none; }
+.Em_info_cotainer div p{text-align:center; font-size:0.9rem; font-weight:600; padding-bottom:0.5rem;}
+.Em_info_cotainer_ul{
+	margin:0 auto;
+	display:block;
+	width:75%;
+	/*min-height:15rem;*/
+	line-height:2rem;
+	overflow:hidden;
+	font-size: 0.65rem; }
+/*表格 td灰边  总体信息*/
+.Em_info_table{ width:90%; margin:1.25rem auto;}
+.Em_info_table td{border:0.05rem solid #B3B8BF; text-align:center; height:2rem ; line-height:2rem; font-size: 0.65rem;}
+.Em_info_table a:hover{ color: #0B82D9; text-decoration: underline;}
+
+.Emfont_size{ font-size:0.9rem;}
+.Em_info_ul_height{height:12.5rem; overflow: hidden;}
+.Em_info_ul_height span{ font-size:0.55rem; padding-left: 0.25rem;}
+.Em_info_ul_width{ width:50%;}
+#dev_upschart1,#dev_upschart2{height:15rem; display:block; width:100%; overflow:hidden; margin-top:1rem;}
+
+
+#devName{ line-height: 0.75rem;}
+.text_break,#devName{
+	max-width:10rem;
+	word-wrap: break-word;
+	word-break: normal;
+	line-height: 1rem;
+	margin: 0 auto;
+	cursor: default;
+}
+
+.limit_table{
+	table-layout: fixed;
+}
+.lightblue_table{
+	background: #F4F8FB;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;}
