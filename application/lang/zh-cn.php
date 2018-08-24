@@ -57,4 +57,7 @@ return [
     '_AM_INFO_' => '普通信息',
 
     '_RS_SYS_NO_' => '序号',
+
+    '_DEV_TEMP_SENSOR_' => '温度传感器',
+    '_DEV_VIBRATION_SENSOR_' => '振动传感器',
 ];

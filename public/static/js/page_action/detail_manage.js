@@ -29,18 +29,22 @@ requirejs(['jquery','nav','pc_public',"Validform"], function ($,nav,PCpub){
             type: "POST",
             data: {"user_id": 1},
             url: "/index/user/get_zone_list",
-            success: function (data) {
-		        var zone_list = JSON.parse(data);
-		        var idn_zone=$("#Ema_ZoneId");
-		        var html='';
-		        idn_zone.empty();
-		        for(var i=0;i<zone_list.length;i++){
-		        	html += '<option value="'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneDesc+'</option>';
-		        }
-		        idn_zone.html(html);
-		        if(zone_id != 0){//若get_conf先获取到，这边要重新填值
-		        	$('[name=EmaC_ZoneId]').val($('<div>').html(zone_id).text());
-		        }
+            success: function (returnData) {
+		        var data = JSON.parse(returnData);
+		        if(data.code == 0)
+		        {
+		        	zone_list = data.data;
+			        var idn_zone=$("#Ema_ZoneId");
+			        var html='';
+			        idn_zone.empty();
+			        for(var i=0;i<zone_list.length;i++){
+			        	html += '<option value="'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneDesc+'</option>';
+			        }
+			        idn_zone.html(html);
+			        if(zone_id != 0){//若get_conf先获取到，这边要重新填值
+			        	$('[name=EmaC_ZoneId]').val($('<div>').html(zone_id).text());
+			        }
+			    }
             }
         });
     };

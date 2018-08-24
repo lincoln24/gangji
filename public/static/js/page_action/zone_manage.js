@@ -27,26 +27,30 @@ requirejs(['jquery','nav','pc_public',"public","poshytip"], function ($,nav,PCpu
             type: "POST",
             data: {"user_id": 1},
             url: "/index/user/get_zone_list",
-            success: function (data) {
-		        var zone_list = JSON.parse(data);
-		        // alert(zone_list);
-		        var idn_zone=$("#dev_list");
-		        var html='';
-		        idn_zone.empty();
-		        for(var i=0;i<zone_list.length;i++){
-		        	html += '<div class="gradient">'+
-		        			'<span class="Emanage_snall_title">'+
-		                    '<input type="checkbox" class="em_checkbox" id="zone_'+zone_list[i].ZoneId+'" style="position:relative;margin:0.25rem;z-index:1">'+
-		                    '<label class="namelimit EmLink" id="zonelink_'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneDesc+'</label>'+
-		              		'</span>'+
-		              		'</div>';
-		        }
-		        zone_num = zone_list.length;
-		        idn_zone.html(html);
+            success: function (returnData) {
+                var data = JSON.parse(returnData);
+                if(data.code == 0)
+                {
+                    var zone_list = data.data;
+			        // alert(zone_list);
+			        var idn_zone=$("#dev_list");
+			        var html='';
+			        idn_zone.empty();
+			        for(var i=0;i<zone_list.length;i++){
+			        	html += '<div class="gradient">'+
+			        			'<span class="Emanage_snall_title">'+
+			                    '<input type="checkbox" class="em_checkbox" id="zone_'+zone_list[i].ZoneId+'" style="position:relative;margin:0.25rem;z-index:1">'+
+			                    '<label class="namelimit EmLink" id="zonelink_'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneDesc+'</label>'+
+			              		'</span>'+
+			              		'</div>';
+			        }
+			        zone_num = zone_list.length;
+			        idn_zone.html(html);
 
-				$(".EmLink").click(function(){
-					Ema_action_rule(3,this)
-				});
+					$(".EmLink").click(function(){
+						Ema_action_rule(3,this)
+					});
+				}
             }
         });
     };

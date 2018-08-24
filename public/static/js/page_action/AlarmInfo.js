@@ -58,6 +58,9 @@ define(["jquery","nav","pc_public","My97DatePicker",'jqpagination','ajaxfileuplo
     };
     //同步页面参数
     var updateParams=function(){
+        dev_type = $('#dev_list').val();
+        dev_index = $('#type_list').val();
+        zone_id = $('#zone_list').val();
         search_status = $('#search_status').val();
         search_level = $('#search_level').val();
         search_start = $('#startTime').val();
@@ -75,20 +78,27 @@ define(["jquery","nav","pc_public","My97DatePicker",'jqpagination','ajaxfileuplo
             url:"/index/alarm/get_alarm_list",
             data:{
                 "status":search_status,
+                "dev_type":dev_type,
+                "dev_index":dev_index,
+                "zone_id":zone_id,
                 "level":search_level,
                 "start":search_start,
                 "end":search_end,
                 "from":search_from,
                 "to":search_to
             },
-            success:function(returnData){
-                data = JSON.parse(returnData);
-                alarm_infor_table_create(data.data,search_from + 1);
-                var pcout=Math.ceil(data.total/pageNum)>0?Math.ceil(data.total/pageNum):1;//总页数
-                $('.pagination').jqPagination('option', 'current_page', page);
-                $('.pagination').jqPagination('option', 'max_page', pcout);
-                $(".all_page").html(pcout);//总页数
-                // PCpub.get_cur_user_level_ajax();
+            success:function(ret){
+                returnData = JSON.parse(ret);
+                if(returnData.code == 0)
+                {
+                    data = returnData.data;
+                    alarm_infor_table_create(data.data,search_from + 1);
+                    var pcout=Math.ceil(data.total/pageNum)>0?Math.ceil(data.total/pageNum):1;//总页数
+                    $('.pagination').jqPagination('option', 'current_page', page);
+                    $('.pagination').jqPagination('option', 'max_page', pcout);
+                    $(".all_page").html(pcout);//总页数
+                    // PCpub.get_cur_user_level_ajax();
+                }
             }
         })
     };

@@ -25,11 +25,17 @@ class User extends Controller
 
         if($result == null)
         {       
-            return $result; 
+            return (json_encode(array(
+                "code" => 1,
+                "error" => 'user_name or password error',
+                "data" => '')));
         }
         else
         {
-            return json_encode($result[0]);
+            return json_encode(array(
+                "code" => 0,
+                "error" => '',
+                "data" => $result[0]));
         }
     }
 
@@ -41,11 +47,17 @@ class User extends Controller
 
         if($result == null)
         {
-            return $result; 
+            return (json_encode(array(
+                "code" => 1,
+                "error" => 'no zone',
+                "data" => '')));
         }
         else
         {
-            return json_encode($result);
+            return json_encode(array(
+                "code" => 0,
+                "error" => '',
+                "data" => $result));
         }
     }
 }

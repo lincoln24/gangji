@@ -51,10 +51,11 @@ class ControllerBase extends Controller
 	 /**
 	 * @param int $code 以JSON格式返回错误代码 (CODE_FAILED|CODE_SUCCESS|...)
 	 */
-    protected function ajaxReturnCode($code, $error="", $contentType='')
+    protected function ajaxReturnCode($code, $error="", $data='')
     {
         return (json_encode(array(
                 "code" => $code,
-                "error" => $error)));
+                "error" => $error,
+                "data" => $data)));
     }
 }

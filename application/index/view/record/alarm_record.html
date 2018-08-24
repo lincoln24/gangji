@@ -42,8 +42,8 @@
                      <td>处理状态：</td>
                      <td width="20%">
                        <select id="search_status">
-                         <option value="0"><!--全部-->{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
-                         <option selected="selected" value="1">发生中</option>
+                         <option value="-1"><!--全部-->{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
+                         <option selected="selected" value="0">发生中</option>
                          <option value="2">已恢复</option>
                        </select>
                      </td>
@@ -62,6 +62,28 @@
                        <input id="startTime" name="startTime" type="text" class="Wdate" readonly="readonly">
                        <span>--</span>
                        <input id="endTime" name="endTime" type="text" class="Wdate" readonly="readonly" >
+                     </td>
+                  </tr>  
+                  <tr>
+                     <td>区域:</td>
+                     <td width="20%">
+                       <select id="zone_list">
+                         <option value="0"><!--全部-->{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
+                       </select>
+                     </td>
+                     <td>设备类型:</td>
+                     <td width="20%">
+                        <select id="type_list">
+                            <option value="0"><!--全部-->{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
+                            <option value="1"><!--温度传感器-->{$Think.lang._DEV_TEMP_SENSOR_}</option>
+                            <option value="2"><!--振动传感器-->{$Think.lang._DEV_VIBRATION_SENSOR_}</option>
+                       </select>
+                     </td>
+                     <td>设备名称:</td>
+                     <td width="20%">
+                        <select id="dev_list">
+                            <option value="0"><!--全部-->{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
+                       </select>
                      </td>
                      <td>
                          <button id="searchButton" type="button"  class="input_4" >

@@ -27,24 +27,28 @@ requirejs(['jquery','nav','pc_public',"public","poshytip"], function ($,nav,PCpu
             type: "POST",
             data: {"user_id": 1},
             url: "/index/user/get_zone_list",
-            success: function (data) {
-		        var zone_list = JSON.parse(data);
-		        // 添加区域列表
-		        var idn_zone=$("#dev_list");
-		        var html='';
-		        idn_zone.empty();
-		        for(var i=0;i<zone_list.length;i++){
-		        	html += '<div style="border-bottom:solid #144388">'+
-		                    '<label>'+zone_list[i].ZoneDesc+'</label>'+
-		              		'</div>'+
-		                    '<div id="zone_'+zone_list[i].ZoneId+'"></div><div style="clear:both;height:1rem"></div>';
-		        }
-		        // zone_num = zone_list.length;
-		        idn_zone.html(html);
+            success: function (returnData) {
+		        var data = JSON.parse(returnData);
+		        if(data.code == 0)
+		        {
+		        	var zone_list = data.data;
+			        // 添加区域列表
+			        var idn_zone=$("#dev_list");
+			        var html='';
+			        idn_zone.empty();
+			        for(var i=0;i<zone_list.length;i++){
+			        	html += '<div style="border-bottom:solid #144388">'+
+			                    '<label>'+zone_list[i].ZoneDesc+'</label>'+
+			              		'</div>'+
+			                    '<div id="zone_'+zone_list[i].ZoneId+'"></div><div style="clear:both;height:1rem"></div>';
+			        }
+			        // zone_num = zone_list.length;
+			        idn_zone.html(html);
 
-		        for(var i=0;i<zone_list.length;i++){
-		        	get_sensor_list(zone_list[i].ZoneId,"equip/get_conf");
-		        }
+			        for(var i=0;i<zone_list.length;i++){
+			        	get_sensor_list(zone_list[i].ZoneId,"equip/get_conf");
+			        }
+			    }
             }
         });
     };

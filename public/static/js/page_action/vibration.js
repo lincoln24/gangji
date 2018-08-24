@@ -28,22 +28,26 @@ define(["jquery","public"],function($,pub){
             type: "POST",
             data: {"user_id": 1},
             url: "/index/user/get_zone_list",
-            success: function (data) {
-                // alert(data);
-                var idn_zone=$("#zone_list");
-                var html='';
-                var zone_list = JSON.parse(data);
-                idn_zone.empty();
-                html += '<span onclick=change_zone('+zone_list[0].ZoneId+')';
-                html += ' id=zone_list_'+zone_list[0].ZoneId;
-                html += ' class="statics-figcaption-click">'+zone_list[0].ZoneDesc+'</span>'
-                for(var i=1;i<zone_list.length;i++){
-                    html += '<span onclick=change_zone('+zone_list[i].ZoneId+')';
-                    html += ' id=zone_list_'+zone_list[i].ZoneId+'>';
-                    html += zone_list[i].ZoneDesc+'</span>';
+            success: function (returnData) {
+                var data = JSON.parse(returnData);
+                if(data.code == 0)
+                {
+                    var zone_list = data.data;
+                    // alert(data);
+                    var idn_zone=$("#zone_list");
+                    var html='';
+                    idn_zone.empty();
+                    html += '<span onclick=change_zone('+zone_list[0].ZoneId+')';
+                    html += ' id=zone_list_'+zone_list[0].ZoneId;
+                    html += ' class="statics-figcaption-click">'+zone_list[0].ZoneDesc+'</span>'
+                    for(var i=1;i<zone_list.length;i++){
+                        html += '<span onclick=change_zone('+zone_list[i].ZoneId+')';
+                        html += ' id=zone_list_'+zone_list[i].ZoneId+'>';
+                        html += zone_list[i].ZoneDesc+'</span>';
+                    }
+                    idn_zone.html(html);
+                    vibration_ajax(zone_list[0].ZoneId);
                 }
-                idn_zone.html(html);
-                vibration_ajax(zone_list[0].ZoneId);
             }
         });
     };
