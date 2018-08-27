@@ -225,7 +225,7 @@ requirejs(['jquery','nav','pc_public',"Validform","ajaxfileupload","My97DatePick
 	var System_set_init=function(){
 		time_serve_rule();//时间服务器初始化
 		SyDate_auto_time_rule();//使用网络日期和时间
-		demo=PCpub.ups_form(".sysform");
+		demo=PCpub.equip_form(".sysform");
 		PCpub.wdate_init("sys_setting",'yyyy-MM-dd H:mm:ss');//生效时段
 		PCpub.wdate_init("SyDate_s_day","SyDate_e_day",'H:mm');//生效时段
 		PCpub.wdate_init("SyDate_s_date","SyDate_e_date",'MM-dd');//生效时间

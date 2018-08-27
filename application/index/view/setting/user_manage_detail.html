@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <link rel="Shortcut Icon" href="/static/favicon.ico"> -->
+    <link href="/static/css/static.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/user_manage.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/validform.css" rel="stylesheet" type="text/css">
+    <script>
+        var ERR_USERNAME_EXIST="{$Think.lang._ERR_USERNAME_EXIST_}";//用户名已存在
+        var USER_FOMAT_ERROR="{$Think.lang._USER_FOMAT_ERROR_}";//配置格式不正确
+    </script>
+    <script src="/static/js/require.js" data-main="/static/js/page_action/user_manage_detail.js"></script>
+
+    <title>{$Think.lang._SYSTEM_NAME_}</title>
+</head>
+
+<body class="statics_bg">
+
+{include file="pub/header"}
+{include file="pub/nav"}
+
+<section class="statics_section">
+   <!--顶部导航开始-->
+   <header class="statics_header">
+   </header>
+   <!--顶部导航结束-->
+
+    <section  class="esUPS_cotainer">
+        <form class="UmNewForm">
+            <figure  class="es_table_title">
+                <figcaption>
+                    <span>创建用户</span>
+                </figcaption>
+           <span class="es_table_container">
+               <table class="normal_table Um_table" id="Umm_new_table">
+                   <tbody>
+                   <tr>
+                       <td width="20%">
+                           <!--用户名：-->{$Think.lang._LOGIN_USERNAME_}:
+                       </td>
+                       <td width="30%"  class="warning">
+                           <input type="text" name="UmmN_user_name" datatype="passageName"  errormsg="{$Think.lang._ERR_FORMAT_}" >
+                           *
+                           <div class="info">
+                               <span class="Validform_checktip"></span>
+                               <span class="dec">
+                                   <a class="dec1"></a>
+                               </span>
+                           </div>
+                       </td>
+                       <td width="20%">用户权限：</td>
+                       <td width="30%" class="warning">
+                           <select name="UmmN_priv">
+                               <option value="2">{$Think.lang._USER_USERLEVEL_NORMAL_}</option>
+                               <option value="1">{$Think.lang._USER_USERLEVEL_ADMIN_}</option>
+                           </select>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td><!--密码:-->{$Think.lang._LOGIN_PASSWORD_}:</td>
+                       <td class="warning">
+                           <input type="password" autocomplete="off" name="UmmN_user_passwd" datatype="passageLimit"  errormsg="{$Think.lang._ERR_FORMAT_}">
+                           *
+                       </td>
+                       <td>管辖区域:</td>
+                       <td class="warning">
+                           <input type="text" name="UmmN_zone" datatype="name" errormsg="{$Think.lang._ERR_FORMAT_}">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>号码:</td>
+                       <td class="warning">
+                           <input type="text"  name="UmmN_phone"  errormsg="{$Think.lang._ERR_FORMAT_}">
+                       </td>
+                       <td>电子邮箱:</td>
+                       <td class="warning">
+                           <input type="text" name="UmmN_email" errormsg="{$Think.lang._ERR_FORMAT_}">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="UmN_recept_Alarm">
+                              接受警告时间:
+                           </label>
+                           <!-- <input type="checkbox" id="UmN_recept_Alarm" class="check_vertical"  name="UmmN_is_recv_alarm" value="0"> -->
+                       </td>
+                       <td>
+                           <input type="text"  class="Wdate" readonly="readonly" value="00:00:00"  id="alarm_start_time" name="UmmN_alarm_start">
+                           --
+                           <input type="text"  class="Wdate" readonly="readonly" value="23:59:59"   id="alarm_end_time" name="UmmN_alarm_end">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td colspan="4">
+                           <small  class="warning">
+                               <!--提示: 带*为必填项-->{$Think.lang._USER_REQUIRED_WARNING_}
+                           </small>
+                       </td>
+                   </tr>
+                   </tbody>
+               </table>
+           </span>
+            </figure>
+
+       <span style="float:right;">
+       <button  type="button" class="input_4 close1" id="UmmNew_sure">
+           <span><!--确认-->{$Think.lang._COMM_CONFIRM_}</span>
+       </button>
+       <button  type="button" class="input_4 close" id="UmmNew_cancel">
+           <span><!--取消-->{$Think.lang._COMM_CANCEL_}</span>
+       </button>
+       </span>
+        </form>
+    </section> 
+
+</section>
+
+</body>
+</html>

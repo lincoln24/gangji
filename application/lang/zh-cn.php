@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '_SYSTEM_NAME_' => '西人马智慧创联系统',
     '_USER_USERLEVEL_NORMAL_' => '一般用户',
     '_USER_USERLEVEL_OPERATOR_' => '系统操作员',
     '_USER_USERLEVEL_ADMIN_' => '管理员',
@@ -30,6 +31,12 @@ return [
     '_COMM_SEARCH_' => '查询',
     '_COMM_CONFIRM_' => '确认',
     '_COMM_CANCEL_' => '取消',
+    '_COMM_TYPE_' => '类型',
+    '_COMM_EDIT_' => '编辑',
+    '_COMM_ADD_' => '新增',
+    '_COMM_MODIFY_' => '修改',
+    '_COMM_DELETE_' => '删除',
+    '_COMM_DONE_' => '完成',
     '_COMM_FIRST_PAGE_' => '首 页',
     '_COMM_LAST_PAGE_' => '末 页',
     '_COMMOM_POPWIN_TIP_' => '提示',
@@ -57,6 +64,8 @@ return [
     '_AM_INFO_' => '普通信息',
 
     '_RS_SYS_NO_' => '序号',
+    
+    '_USER_REQUIRED_WARNING_' => '提示: 带*为必填项',
 
     '_DEV_TEMP_SENSOR_' => '温度传感器',
     '_DEV_VIBRATION_SENSOR_' => '振动传感器',

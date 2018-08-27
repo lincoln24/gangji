@@ -2,40 +2,120 @@
 namespace app\index\controller;
 
 use think\Db;
-use think\Controller;
+use app\common\controller\ControllerBase;
 
-class User extends Controller
+class User extends ControllerBase
 {
     public function index()
     {
+        return $this->fetch('setting/user_manage');
     }
 
-    public function user_log_in()
+    public function user_manage_detail()
+    {
+        return $this->fetch('setting/user_manage_detail');
+    }
+
+    public function get_user_detail()
     {
         $input = request()->put();
-        $name = $input['user_name'];
-        $password = $input['user_passwd'];
+        $user_id = $input['user_id'];
 
         $result = Db::table('c_user')
-        ->field('id as UserId')
-        ->where(array(
-            'user_name' => $name,
-            'user_passwd' => $password))
-        ->select();
+        ->field('id,user_name,zone,priv,alarm_start,alarm_end,phone,email')
+        ->where("id",$user_id)
+        ->find();
 
         if($result == null)
-        {       
-            return (json_encode(array(
-                "code" => 1,
-                "error" => 'user_name or password error',
-                "data" => '')));
+        {
+            return $this->ajaxReturnCode(CODE_FAILED,'get user fail');
         }
         else
         {
-            return json_encode(array(
-                "code" => 0,
-                "error" => '',
-                "data" => $result[0]));
+            return $this->ajaxReturnCode(CODE_SUCCESS,null,$result);
+        }
+    }
+
+    public function set_user_detail()
+    {
+        $input = request()->put();
+        $user_id = $input['user_id'];
+        $config = json_decode($input['config'], true);
+
+        $result = Db::table('c_user')
+        ->field('id')
+        ->where("id",$user_id)
+        ->find();
+
+        if($result == null)//id不存在
+        {
+            $result = Db::name('c_user')->insert($config);
+        }
+        else//id已存在
+        {
+           $result = Db::table('c_user')->where('id', $user_id)
+                                    ->data($config)
+                                    ->update();
+        }
+
+        if($result == null)
+        {
+            return $this->ajaxReturnCode(CODE_FAILED,'set user fail');
+        }
+        else
+        {
+            return $this->ajaxReturnCode(CODE_SUCCESS);
+        }
+    }
+
+    public function delete_user()
+    {
+        $input = request()->put();
+        $list = json_decode($input['list'], true);
+
+        foreach ($list as $item)
+        {
+            if (null != $item["index"])
+            {
+                $result = Db::table('c_user')->where('id', $item["index"])->delete();
+            }
+        }
+
+        return $this->ajaxReturnCode(CODE_SUCCESS);
+    }
+
+    public function get_user_list()
+    {
+        $input = request()->put();
+
+        $sqlToDo = "select id,user_name,zone,priv,alarm_start,alarm_end,phone,email FROM c_user";
+        $sqlToDo .= " WHERE 1=1";
+        if($input['userType'] != null)
+        {
+            $sqlToDo .= " AND priv=" . $input['userType'];
+        }
+        if($input['name'] != null)
+        {
+            $sqlToDo .= " AND user_name=" . $input['name'];
+        }
+
+        $result = Db::query($sqlToDo);
+
+        if($result == null)
+        {
+            return $this->ajaxReturnCode(1,'no user');
+        }
+        else
+        {
+            for ($i=0; $i < count($result); $i++) {
+                $zonelist = model('CZone')->get_zone_list($result[$i]['id']);
+                $zone = "";
+                foreach ($zonelist as $key => $value) {
+                    $zone .= $value["ZoneDesc"] . "/";
+                }
+                $result[$i]["zone"] = $zone;
+            }
+            return $this->ajaxReturnCode(0,null,$result);
         }
     }
 
@@ -47,17 +127,11 @@ class User extends Controller
 
         if($result == null)
         {
-            return (json_encode(array(
-                "code" => 1,
-                "error" => 'no zone',
-                "data" => '')));
+            return $this->ajaxReturnCode(1,'no zone');
         }
         else
         {
-            return json_encode(array(
-                "code" => 0,
-                "error" => '',
-                "data" => $result));
+            return $this->ajaxReturnCode(0,null,$result);
         }
     }
 }

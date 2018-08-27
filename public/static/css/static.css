@@ -657,10 +657,10 @@ input[type=radio].disabled,input[type=checkbox].disabled{border: none;background
 	background: #fff;
 	z-index: 90;
 }
-input[type=checkbox]{ position: absolute; z-index: -1}
+input[type=checkbox]{ position: relative; z-index: 1}
 .event_checkbox input[type=checkbox]{ top: 0; left: 0;}
 .checkbox_label{
-	background: url("../ixx/checkbox_checked.png") no-repeat;
+	/*background: url("../ixx/checkbox_checked.png") no-repeat;*/
 	background-size: 100% 100%;
 	display: inline-block;
 	width: 1rem;
@@ -670,7 +670,7 @@ input[type=checkbox]{ position: absolute; z-index: -1}
 }
 .event_checkbox_checked:after{
 	content:"";
-	background: url("../ixx/checkbox_checked_1.png") no-repeat;
+	/*background: url("../ixx/checkbox_checked_1.png") no-repeat;*/
 	background-size: 100% 100%;
 	display: inline-block;
 	width: 1rem;
@@ -696,7 +696,7 @@ input[type=checkbox]{ position: absolute; z-index: -1}
 }
 .check_false_label:before{
 	content:"";
-	background: url("../ixx/checked_false.png") no-repeat;
+	/*background: url("../ixx/checked_false.png") no-repeat;*/
 	background-size: 100% 100%;
 	display: inline-block;
 	width: 1rem;
@@ -706,7 +706,7 @@ input[type=checkbox]{ position: absolute; z-index: -1}
 }
 .uncheck_false_label:before{
 	content:"";
-	background: url("../ixx/checkbox_false.png") no-repeat;
+	/*background: url("../ixx/checkbox_false.png") no-repeat;*/
 	background-size: 100% 100%;
 	display: inline-block;
 	width: 1rem;

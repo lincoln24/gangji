@@ -2,7 +2,6 @@
 define(["jquery","Validform","md5"],function($){
 	var ajaxFlag=100;
 	var Power_level=0;//权限
-	var ifMimaUse=1;//用户密码验证   0不弹出，1要弹出
 
 	var checkbox_ready=function(obj){
 		$(obj).not(".chk_1").each(function(){
@@ -1272,7 +1271,6 @@ define(["jquery","Validform","md5"],function($){
 				data:{},
 				success:function(data){
 					Power_level=Number(data.userLevel);
-					ifMimaUse=data.ask_pwd;
 					get_user_level_power_rule(Power_level);
 					checkbox_ready("input[type=checkbox]");
 					checkbox_ready_action("input[type=checkbox]");

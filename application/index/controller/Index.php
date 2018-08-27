@@ -64,4 +64,33 @@ class Index extends Controller
                 "code" => get_auth_status(),
                 "error" => "")));
     }
+    //手机用户登陆
+    public function user_log_in()
+    {
+        $input = request()->put();
+        $name = $input['user_name'];
+        $password = $input['user_passwd'];
+
+        $result = Db::table('c_user')
+        ->field('id as UserId')
+        ->where(array(
+            'user_name' => $name,
+            'user_passwd' => $password))
+        ->select();
+
+        if($result == null)
+        {       
+            return (json_encode(array(
+                "code" => 1,
+                "error" => 'user_name or password error',
+                "data" => null)));
+        }
+        else
+        {
+            return json_encode(array(
+                "code" => 0,
+                "error" => '',
+                "data" => $result[0]));
+        }
+    }
 }

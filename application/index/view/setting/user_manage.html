@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <link rel="Shortcut Icon" href="/static/favicon.ico"> -->
+    <link href="/static/css/static.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/user_manage.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/jqpagination.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/validform.css" rel="stylesheet" type="text/css">
+    <script>
+        var USER_ALARM_OBJ="{$Think.lang._USER_ALARM_OBJ_}";//告警对象
+        var USER_MANAGER="{$Think.lang._USER_USERLEVEL_ADMIN_}";//系统管理员
+        var USER_NORMAL_USER="{$Think.lang._USER_USERLEVEL_NORMAL_}";//一般用户
+    </script>
+    <script src="/static/js/require.js" data-main="/static/js/page_action/user_manage.js"></script>
+    <title>{$Think.lang._SYSTEM_NAME_}</title>
+</head>
+<body class="statics_bg" id="UsermanageManager_body">
+{include file="pub/header"}
+{include file="pub/nav"}
+
+<section class="statics_section">
+   <!--顶部导航开始-->
+   <header class="statics_header">
+   </header>
+   <!--顶部导航结束-->
+
+    <section  class="esUPS_cotainer">
+       <figure  class="es_table_title">
+           <figcaption>
+               <span>用户管理</span>
+           </figcaption>
+           <span class="es_table_container">
+               <form class="Userm">
+                   <table class="normal_table">
+                       <tbody>
+                       <tr>
+                           <td width="9%">用户类型：</td>
+                           <td width="15%">
+                               <select id="Umm_type_select">
+                                   <option value="">{$Think.lang._RS_HISTORY_LEVEL_ALL_}</option>
+                                   <option value="2">{$Think.lang._USER_USERLEVEL_NORMAL_}</option>
+                                   <option value="1">{$Think.lang._USER_USERLEVEL_ADMIN_}</option>
+                               </select>
+                           </td>
+                           <td width="7%">用户名：</td>
+                           <td width="15%">
+                               <input type="text" id="Umm_name" ignore="ignore" datatype="name" errormsg="格式错误!">
+                               <div class="info">
+                                    <span class="Validform_checktip"></span>
+                                    <span class="dec">
+                                        <a class="dec1"></a>
+                                    </span>
+                               </div>
+                           </td>
+                           <td>
+                               <button type="button"  class="input_4" id="Umm_search">
+                                   <span>{$Think.lang._COMM_SEARCH_}</span>
+                               </button>
+                           </td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </form>
+
+               <table  class="plan_table">
+                   <thead>
+                   <tr>
+                       <td>
+                           &nbsp;
+                           <input type='checkbox' class='check_vertical' id="check_vertical">
+                           &nbsp;
+                       </td>
+                       <!--<td>序号</td>-->
+                       <td>用户名</td>
+                       <td>用户权限</td>
+                       <td>管辖区域</td>
+                       <td><!--接受告警开始时间-->{$Think.lang._RS_HISTORY_ALARM_BEGIN_}</td>
+                       <td><!--接受告警结束时间-->{$Think.lang._RS_HISTORY_ALARM_OVER_}</td>
+                       <td>号码</td>
+                       <td>电子邮箱</td>
+                   </tr>
+                   </thead>
+                   <tbody id="userM_tbody">
+
+                   </tbody>
+               </table>
+               <span style="float:right;">
+                <button type="button"  class="input_4" id="Umm_add">
+                    <span><!--新增-->{$Think.lang._COMM_ADD_}</span>
+                </button>
+                <button type="button"  class="input_4" id="Umm_design" >
+                    <span><!--修改-->{$Think.lang._COMM_MODIFY_}</span>
+                </button>
+                <button type="button"  class="input_4" id="Umm_delete">
+                    <span><!--删除-->{$Think.lang._COMM_DELETE_}</span>
+                </button>
+              </span>
+           </span>
+       </figure>
+    </section> 
+</section>
+
+</body>
+</html>

@@ -8,12 +8,10 @@ class DEventLog extends Model
 {
     public function get_alarm_num($status=null, $dev_type=0, $dev_index=0, $zone_id=0, $level=0, $start=null, $end=null)
     {
-        $sqlToDo = "select count(1) as alarm_num FROM d_event_log WHERE status<3";
-
         $sqlToDo = "select count(1) as alarm_num FROM d_event_log event inner join c_sensor conf";
         $sqlToDo .= " on event.dev_type=conf.sensor_type and event.dev_index=conf.sensor_id";
         $sqlToDo .= " WHERE event.status<3";
-        if(($status != null) && ($status >= 0))
+        if($status != null)
         {
             $sqlToDo .= " AND event.status=" . $status;
         }
@@ -54,7 +52,7 @@ class DEventLog extends Model
         $sqlToDo .= ",event.alarm_level as level,event.occur_time as occurred,event.cancel_time as canceled";
         $sqlToDo .= " FROM d_event_log event inner join c_sensor conf on event.dev_type=conf.sensor_type and event.dev_index=conf.sensor_id";
         $sqlToDo .= " WHERE event.status<3";
-        if(($status != null) && ($status >= 0))
+        if($status != null)
         {
             $sqlToDo .= " AND event.status=" . $status;
         }
