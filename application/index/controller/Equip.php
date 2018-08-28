@@ -16,6 +16,16 @@ class Equip extends ControllerBase
         return $this->fetch('setting/detail_manage');
     }
 
+    public function history()
+    {
+        return $this->fetch('record/data_record_select');
+    }
+
+    public function his_data()
+    {
+        return $this->fetch('record/data_record');
+    }
+
     public function get_conf()
     {
         $input = request()->put();
@@ -27,7 +37,7 @@ class Equip extends ControllerBase
         }
         else
         {
-            return json_encode($result);
+            return $this->ajaxReturnCode(CODE_SUCCESS,null,$result);
         }
     }
 
@@ -69,5 +79,64 @@ class Equip extends ControllerBase
         }
 
         return $this->ajaxReturnCode(CODE_SUCCESS);
+    }
+
+    public function get_his_data()
+    {
+        $input = request()->put();
+
+        $table = '';
+
+        switch ($input['dev_type']) 
+        {
+            case TYPE_TEMP_SENSOR:
+                $table = 'd_his_temp';
+                break;
+            case TYPE_VIBRATION_SENSOR:
+                $table = 'd_his_vibration';
+                break;
+            default:
+                $table = 'd_his_temp';
+                break;
+        }
+        switch ($input['interval']) 
+        {
+            case 1:
+                $table .= '_realtime';
+                break;
+            case 2:
+                $table .= '_day';
+                break;
+            case 3:
+                $table .= '_month';
+                break;
+            case 4:
+                $table .= '_quarter';
+                break;
+            default:
+                $table = '_day';
+                break;
+        }
+
+        $where = 'dev_index=' . $input['dev_index'];
+        if($input['start'] != null)
+        {
+            $where .= ' AND time_f >= "' . $input['start'] . '"';
+        }
+        if($input['end'] != null)
+        {
+            $where .= ' AND time_f <= "' . $input['end'] . '"';
+        }
+
+        $result = Db::name($table)->field('id,time_f,dev_index,temp_f as dev_data')->where($where)->select();
+
+        if($result == null)
+        {
+            return $this->ajaxReturnCode(CODE_FAILED); 
+        }
+        else
+        {
+            return $this->ajaxReturnCode(CODE_SUCCESS,null,$result);
+        }
     }
 }

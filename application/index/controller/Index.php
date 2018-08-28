@@ -87,6 +87,11 @@ class Index extends Controller
         }
         else
         {
+            Session::set('login_time',time());
+            Session::set('userName',$name);
+            Session::set('userID',$result[0]['UserId']);
+            Session::set('userLevel',1);
+            
             return json_encode(array(
                 "code" => 0,
                 "error" => '',

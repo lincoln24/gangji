@@ -25,6 +25,7 @@ class CSensor extends Model
         }
 
         $result = $this->field(array('sensor_id' => 'SensorId',
+                      'sensor_type' => 'SensorType',
                       'zone_id' => 'ZoneId',
                       'name' => 'Name',
                       'number' => 'Number',

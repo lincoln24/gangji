@@ -16,6 +16,11 @@ class CZone extends Model
 
         $sqlToDo = "select zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat";
 
+        if($result == null)
+        {            
+            return null;
+        }
+
         if($result[0]["zone"] == "all")
         {
             $sqlToDo .= " FROM c_zone";//查出所有区域
@@ -35,14 +40,72 @@ class CZone extends Model
         return $result;
     }
 
-    public function get_zone_detail($zone_id)
+    public function get_zone_detail($zone_id= null)
     {
-        $result = $this->field('zone_desc as Name,zone_stat as ZoneStat')
+        if($zone_id != null)
+        {
+            $result = $this->field('zone_desc as Name,zone_stat as ZoneStat')
                     ->where(array(
                         'zone_id' => $zone_id))
                     ->select();
+        }
+        else
+        {
+            $result = $this->field('zone_desc as Name,zone_stat as ZoneStat')->select();
+        }
 
-        return $result[0];
+
+        return $result;
+    }
+
+    public function get_devtype_list($zone_id = null)
+    {        
+        $sqlToDo = "select zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat";
+        $sqlToDo .= " FROM c_zone z inner join c_sensor s on select zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat";
+        if($zone_id != null)
+        {
+            $zoneList = $this->field('zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat')
+                    ->where(array(
+                        'zone_id' => $zone_id))
+                    ->select();
+        }
+        else
+        {
+            $zoneList = $this->field('zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat')
+                    ->select();
+        }
+
+        foreach ($zoneList as $key => $value) 
+        {
+            $typeList = Db::table('c_sensor')
+                            ->field('sensor_type')
+                            ->group('sensor_type')
+                            ->where('zone_id',$value['ZoneId'])
+                            ->select();
+
+            $typeArr = array();
+            foreach ($typeList as $tkey => $tvalue) {
+                $typeArr[$tkey]['typeIndex'] = $tvalue['sensor_type'];
+                //统计状态
+                $sqlToDo = "select COUNT(1) as total,COUNT(status=1 or null) as abnormal";
+                $sqlToDo .= " FROM c_sensor s inner join d_temp_data t on s.sensor_id=t.sensor_id";
+                $sqlToDo .= " where s.sensor_type=" . $tvalue['sensor_type'] . " and s.zone_id=" . $value["ZoneId"];
+                $statusNum = Db::query($sqlToDo);
+                $typeArr[$tkey]["total"] = $statusNum[0]["total"];
+                $typeArr[$tkey]["abnormal"] = $statusNum[0]["abnormal"];
+                switch ($tvalue['sensor_type']) {
+                    case TYPE_TEMP_SENSOR:
+                        $typeArr[$tkey]['typeName'] = lang('_DEV_TEMP_SENSOR_');
+                        break;
+                    case TYPE_VIBRATION_SENSOR:
+                        $typeArr[$tkey]['typeName'] = lang('_DEV_VIBRATION_SENSOR_');
+                        break;
+                }
+            }
+            $zoneList[$key]["devtype_list"] = $typeArr;
+        }
+
+        return $zoneList;
     }
 
     public function set_zone($zone_id=0,$data)

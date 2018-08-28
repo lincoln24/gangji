@@ -2,6 +2,7 @@
 namespace app\index\controller;
 
 use think\Db;
+use think\facade\Session;
 use app\common\controller\ControllerBase;
 
 class User extends ControllerBase
@@ -121,9 +122,17 @@ class User extends ControllerBase
 
     public function get_zone_list()
     {
-        $input = request()->put();
+        $user_id = Session::get('userID');
+        // $result['name'] = Session::get('userName');
 
-        $result = model('CZone')->get_zone_list($input['user_id']);
+        // return $this->ajaxReturnCode(0,null,$result);
+        if($user_id == null)//若session取不到，就从请求中获取
+        {
+            $input = request()->put();
+            $user_id = $input['user_id'];
+        }
+        
+        $result = model('CZone')->get_zone_list($user_id);
 
         if($result == null)
         {

@@ -104,21 +104,28 @@ requirejs(['jquery','nav','pc_public'], function ($,nav,PCpub){
         $.ajax({
             type: "POST",
             data: {"user_id": 1},
-            url: "/index/info/get_zone_sensor_num",
+            url: "/index/zone/get_devtype_list",
             success: function (returnData) {
                 var i= 0,table_html = "";
-                $.each(JSON.parse(returnData),function(key,value){
-                    table_html+='<tr>'+
-                                  '<td rowspan="2">'+value.ZoneDesc+'</td>'+
-                                  '<td><a>温度传感器</a></td>'+
-                                  '<td>'+value.temp.total+'</td>'+
-                                  '<td>'+value.temp.abnormal+'</td>'+
-                                  '</tr>';
-                    table_html+='<tr>'+
-                                  '<td><a>振动传感器</a></td>'+
-                                  '<td>'+value.vibration.total+'</td>'+
-                                  '<td>'+value.vibration.abnormal+'</td>'+
-                                  '</tr>';
+                data = JSON.parse(returnData).data;
+                $.each(data,function(key,value){
+                    $.each(value.devtype_list,function(dkey,dvalue){
+                        if(dkey == 0){
+                            table_html+='<tr>'+
+                                      '<td rowspan="'+value.devtype_list.length+'">'+value.ZoneDesc+'</td>'+
+                                      '<td><a>'+dvalue.typeName+'</a></td>'+
+                                      '<td>'+dvalue.total+'</td>'+
+                                      '<td>'+dvalue.abnormal+'</td>'+
+                                      '</tr>';
+
+                        }else{
+                            table_html+='<tr>'+
+                                      '<td><a>'+dvalue.typeName+'</a></td>'+
+                                      '<td>'+dvalue.total+'</td>'+
+                                      '<td>'+dvalue.abnormal+'</td>'+
+                                      '</tr>';
+                        }
+                    });
                 });
 
                 real_time_data_table_create(table_html);

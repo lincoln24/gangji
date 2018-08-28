@@ -61,25 +61,28 @@ requirejs(['jquery','nav','pc_public',"public","poshytip"], function ($,nav,PCpu
             url: "/index/"+url_link,
             success: function (returnData) {
             	if(!pub.ifNullData(returnData)){
-			        var data = JSON.parse(returnData);
-			        // 添加区域列表
-			        var idn_sensor=$("#zone_"+zoneId);
-			        var html='';
-			        idn_sensor.empty();
-			        for(var i=0;i<data.length;i++){
-		        		html += '<div class="gradient">'+
-			        			'<span class="Emanage_snall_title">'+
-			                    '<input type="checkbox" class="em_checkbox" id="ss_'+data[i].SensorId+'" style="position:relative;margin:0.25rem;z-index:1">'+
-			                    '<label class="namelimit EmLink" id="sensor_'+data[i].SensorId+'">'+data[i].Name+'</label>'+
-			              		'</span>'+
-		              			'</div>';
-			        }
-			        sensor_num += data.length;
-			        idn_sensor.html(html);
+			        var returnData = JSON.parse(returnData);
+			        if(returnData.code == 0){
+			        	data = returnData.data;
+				        // 添加区域列表
+				        var idn_sensor=$("#zone_"+zoneId);
+				        var html='';
+				        idn_sensor.empty();
+				        for(var i=0;i<data.length;i++){
+			        		html += '<div class="gradient">'+
+				        			'<span class="Emanage_snall_title">'+
+				                    '<input type="checkbox" class="em_checkbox" id="ss_'+data[i].SensorId+'" style="position:relative;margin:0.25rem;z-index:1">'+
+				                    '<label class="namelimit EmLink" id="sensor_'+data[i].SensorId+'">'+data[i].Name+'</label>'+
+				              		'</span>'+
+			              			'</div>';
+				        }
+				        sensor_num += data.length;
+				        idn_sensor.html(html);
 
-					$(".EmLink").click(function(){
-						Ema_action_rule(3,this)
-					});
+						$(".EmLink").click(function(){
+							Ema_action_rule(3,this)
+						});
+					}
                 }
             }
         });

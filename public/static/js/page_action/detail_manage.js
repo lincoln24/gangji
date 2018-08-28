@@ -86,18 +86,20 @@ requirejs(['jquery','nav','pc_public',"Validform"], function ($,nav,PCpub){
 				type:"POST",
 				url:"/index/"+u+"/get_conf",
 				data:{
-					"dev_id":devID
+					"zone_id":devID
 				},
 				success:function(returnData){
 					data = JSON.parse(returnData);
 						// alert(returnData);
-					$.each(data,function(key,value){
-						$('[name=EmaC_'+key+']').val($('<div>').html(value).text());//反转义value;
-					});
-					// if(data.enable!=null && data.enable!=undefined){
-					// 	input_is_en_rule(data.enable);//是否启用
-					// }
-					// PCpub.get_cur_user_level_ajax();
+					if(data.code == 0){
+						$.each(data.data[0],function(key,value){
+							$('[name=EmaC_'+key+']').val($('<div>').html(value).text());//反转义value;
+						});
+						// if(data.enable!=null && data.enable!=undefined){
+						// 	input_is_en_rule(data.enable);//是否启用
+						// }
+						// PCpub.get_cur_user_level_ajax();
+					}
 				}
 			});
 		}
@@ -115,14 +117,12 @@ requirejs(['jquery','nav','pc_public',"Validform"], function ($,nav,PCpub){
 				success:function(returnData){
 					data = JSON.parse(returnData);
 						// alert(returnData);
-					$.each(data[0],function(key,value){
-						$('[name=EmaC_'+key+']').val($('<div>').html(value).text());//反转义value;
-					});
-					zone_id = data[0].ZoneId;
-					// if(data.enable!=null && data.enable!=undefined){
-					// 	input_is_en_rule(data.enable);//是否启用
-					// }
-					// PCpub.get_cur_user_level_ajax();
+					if(data.code == 0){
+						$.each(data.data[0],function(key,value){
+							$('[name=EmaC_'+key+']').val($('<div>').html(value).text());//反转义value;
+						});
+						zone_id = data[0].ZoneId;
+					}
 				}
 			});
 		}

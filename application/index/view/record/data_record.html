@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/static/css/static.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/record_search.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/jqpagination.css" rel="stylesheet" type="text/css">
+    <script src="/static/js/require.js" data-main="/static/js/page_action/data_record.js"></script>
+    <title>{$Think.lang._SYSTEM_NAME_}</title>
+</head>
+<body>
+{include file="pub/header"}
+{include file="pub/nav"}
+<section class="statics_section">
+    <!--顶部导航开始-->
+    <header class="statics_header">
+        <button type="button"  class="input_4 statics_header_returnbutton" id="hisD_return">
+            <span><!--返回-->{$Think.lang._COMM_RETURN_}</span>
+        </button>
+    </header>
+    <figure  class="rs_cotainer RSsection_0" id="historyData_r">
+        <ul class="rsdata_ul rs_table_p" id="hisChart_time">
+            <li>
+                设备名称:
+                <select id="hDC_t"></select>
+            </li>
+            <li style="min-width:100px;" id="hisT_range">
+                <label class="event_radio"><input type="radio" name="interval" value="1">实时</label>
+                <label class="event_radio event_radio_checked">
+                    <input type="radio" name="interval" value="2" checked="checked">日
+                </label>
+                <label class="event_radio"><input type="radio" name="interval" value="3">月</label>
+                <label class="event_radio"><input type="radio" name="interval" value="4">季度</label>
+            </li>
+            <li>
+                起始时间:
+                <input type="text" class="Wdate" readonly="readonly" id="historyChart_start">
+            </li>
+            <li>
+                结束时间:
+                <input type="text" class="Wdate" readonly="readonly" id="historyChart_end">
+            </li>
+            <li>
+                <button id="HistoryChart_search" type="button"  class="input_4" >
+                    <!--查询-->{$Think.lang._COMM_SEARCH_}
+                </button>
+            </li>
+        </ul>
+        <span class="hisData_pcc">
+            <span class="hDC_c" id="history_cc"><span class="loading_center"></span></span>
+            <div style="display: none" id="his_time_slider">
+                <span id="hisD_slide_range" class="hisD_range_c"></span>
+            </div>
+        </span>
+        <span class="hisData_pcc" style="display: none">
+            <table class="plan_table" id="hisD_pc_table" style="table-layout:fixed">
+                <thead>
+                <tr></tr>
+                </thead>
+                <tbody id="Rs_HisData_tbody"><!--插入表格--></tbody>
+                <tfoot>
+                <tr>
+                    <td  colspan="">
+                        <a id="download_a"></a>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </span>
+    </figure>
+    <input type="hidden" name="historyData_id" id="historyData_id">
+    <input type="hidden" name="historyData_dev_type" id="historyData_dev_type">
+</section>
+</body>
+</html>

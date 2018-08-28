@@ -956,10 +956,10 @@ input[type=checkbox]{ position: relative; z-index: 1}
 	z-index: 100;
 }
 .loading_center{
-	background:url("../ixx/loading.gif") #fff no-repeat center;
+	/*background:url("../ixx/loading.gif") #fff no-repeat center;*/
 }
 .grey_loading_center{
-	background:url("../ixx/loading.gif") rgba(0,0,0,0.2) no-repeat center;
+	/*background:url("../ixx/loading.gif") rgba(0,0,0,0.2) no-repeat center;*/
 	filter: alpha(opacity=70);/*IE*/
 	display: none;
 }

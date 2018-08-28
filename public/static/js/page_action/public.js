@@ -280,15 +280,11 @@ define(["jquery","pc_public"],function($,PCpub){
 	 */
 	var getNowFormatDate=function(flag){
 		var currentdate='',time;
-		if(LCDFLAG=='LCD') {//LCD
-			currentdate = $("#header_date").html().split(" ")[0];
-			time=$("#header_time").html().split(':');
-		}else{
-			var dd=$(".header_date").html();
-			var tt=$(".headerTime").html();
-			currentdate = dd;
-			time=tt.split(':');
-		}
+		var dd=$(".header_date").html();
+		var tt=$(".headerTime").html();
+		currentdate = dd;
+		time=tt.split(':');
+		
 		if(flag=='datetime'){
 			currentdate = currentdate+" "+time[0] + ":" + time[1];
 		}else if(flag=='time'){

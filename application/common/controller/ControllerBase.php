@@ -15,19 +15,19 @@ class ControllerBase extends Controller
         $restartTimer = true;
         // $uri = strtolower($_SERVER["REQUEST_URI"]);
 
-        if (get_auth_status() != 0)
-        {
-            //TRACE_DEBUG("auth invalid in Home [" . $_SESSION["login_time"] . "] [" . time() ."]");
-            Session::delete('userName');
-            Session::delete('userID');
-            Session::delete('userLevel');
+        // if (get_auth_status() != 0)
+        // {
+        //     //TRACE_DEBUG("auth invalid in Home [" . $_SESSION["login_time"] . "] [" . time() ."]");
+        //     Session::delete('userName');
+        //     Session::delete('userID');
+        //     Session::delete('userLevel');
 
-            Session::set('login_time',time());
+        //     Session::set('login_time',time());
             
-            header(strtolower("location:/index/index"));
+        //     header(strtolower("location:/index/index"));
 
-            exit();
-        }
+        //     exit();
+        // }
 
         // if ($restartTimer)
         // {

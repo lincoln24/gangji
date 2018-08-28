@@ -31,36 +31,35 @@ class Temp extends ControllerBase
         // dump($result);
         if($result == null)
         {
-            return $result; 
+            return $this->ajaxReturnCode(CODE_FAILED); 
         }
         else
         {
             $result = $this->add_status($result);
-            return json_encode($result);
+            return $this->ajaxReturnCode(CODE_SUCCESS,null,$result);
         }
     }
 
-    public function get_temp_sensor_his_data()
+    public function get_temp_his_data()
     {
         $input = request()->put();
 
-        $where = 'node_id = '. $input['node_id'] .
-                ' and sensor_id = ' . $input['sensor_id'] .
+        $where = 'sensor_id = ' . $input['sensor_id'] .
                 ' and time_f >= "' . $input['start'] .
                 '" and time_f <= "' . $input['end'] . '"';
 
-        $result = Db::table('his_sensor_data')
-        ->field('time_f,temp')
+        $result = Db::table('d_his_temp')
+        ->field('time_f,temp_f')
         ->where($where)
         ->select();
 
         if($result == null)
         {
-            return json_encode($this->ajaxReturnCode(CODE_FAILED)); 
+            return $this->ajaxReturnCode(CODE_FAILED); 
         }
         else
         {
-            return json_encode($result);
+            return $this->ajaxReturnCode(CODE_SUCCESS,null,$result);
         }
     }
 

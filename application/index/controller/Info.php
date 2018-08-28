@@ -61,35 +61,6 @@ class Info extends ControllerBase
         $this->assign('data', $this->data);
         return $this->fetch('index/totalinfo');
     }
-
-    public function get_zone_sensor_num()
-    {
-        $input = request()->put();
-        $i = 0;
-
-        $zoneList = model('CZone')->get_zone_list($input['user_id']);
-        $sensorList = $zoneList;
-
-        foreach ($zoneList as $key => $value) {
-            //统计温度传感器
-            $sqlToDo = "select COUNT(1) as total,COUNT(status=1 or null) as abnormal";
-            $sqlToDo .= " FROM c_sensor s inner join d_temp_data t on s.sensor_id=t.sensor_id";
-            $sqlToDo .= " where s.sensor_type=" . TYPE_TEMP_SENSOR . " and s.zone_id=" . $value["ZoneId"];
-            $result = Db::query($sqlToDo);
-            $sensorList[$key]["temp"]["total"] = $result[0]["total"];
-            $sensorList[$key]["temp"]["abnormal"] = $result[0]["abnormal"];
-            //统计振动传感器
-            $sqlToDo = "select COUNT(1) as total,COUNT(status=1 or null) as abnormal";
-            $sqlToDo .= " FROM c_sensor s inner join d_vibration_data t on s.sensor_id=t.sensor_id";
-            $sqlToDo .= " where s.sensor_type=" . TYPE_VIBRATION_SENSOR . " and s.zone_id=" . $value["ZoneId"];
-            $result = Db::query($sqlToDo);
-            $sensorList[$key]["vibration"]["total"] = $result[0]["total"];
-            $sensorList[$key]["vibration"]["abnormal"] = $result[0]["abnormal"];
-        }
-        // dump($sensorList);
-
-        return json_encode($sensorList);
-    }
     /**
      * 获取标题栏的信息，包括时间、告警状态和用户信息
      */

@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* CSS Document */
+/*tab按钮*/
+.rs_tab_container{ width:90%; overflow:hidden;  float:left; margin-bottom:0.15rem;}
+.rs_tab_container a{
+    display:block;
+    float:left;
+    padding:0.25rem 1rem;
+    margin-right:0.5rem;
+    background:#C1C6D0;
+    color:#fff;
+    font-size:0.8rem;
+    border-radius:0.15rem;
+    -moz-border-radius:0.15rem;
+    -webkit-border-radius:0.15rem;
+    z-index:2;
+    position: relative; }
+.rs_tab_container a:hover,.rs_tab_container .selectes_a{ background:#64A8DF;}
+
+.rs_cotainer{
+    background:#FFF;
+    border:0.05rem solid #CCC;
+    clear:both;
+    padding:0.5rem;
+    overflow:hidden;
+    margin: 0 0 0.5rem 0;
+    border-radius:0 1.25rem 1.25rem 1.25rem;
+    -moz-border-radius:0 1.25rem 1.25rem 1.25rem;
+    -webkit-border-radius:0 1.25rem 1.25rem 1.25rem;
+    z-index:2;
+    position: relative;}
+.rs_cotainer .nodata{
+    font-size: 1rem;
+    height: 90%;
+    line-height: 10rem;
+}
+#Rs_PUE_Statistics_curvechart .nodata{
+    line-height: 12.5rem;
+}
+#Data_UPS_chart .nodata,#Data_thT_chart .nodata,#Data_thH_chart .nodata,#Data_airT_chart .nodata,#Data_airH_chart .nodata{
+    line-height: 15rem;
+}
+.rs_cotainer h3{
+    color:#333; 
+    height: 10%;
+    line-height: 1.25rem;
+    font-size: 0.7rem;
+}
+
+.rs_cotainer .plan_table{ width:100%;}
+.rs_table_p{
+    width:100%;
+    color:#000;
+    font-size:0.6rem;
+    border-radius:0.25rem;
+    -moz-border-radius:0.25rem;
+    -webkit-border-radius:0.25rem;
+    z-index:2;
+    position: relative;
+}
+.rs_table_p  td{ line-height: 1.5rem;}
+.rs_table_p  input[type=text],.rs_table_p  input[type=button],.rs_table_p  input[type=password],.rs_table_p  input[type=email]{
+    width:7.5rem;height:1.05rem;}
+.rs_table_p  select{ width: 7.65rem;height:1.05rem;}
+.rs_trone  td{ padding: 1rem 0;}
+.rs_table_p td{ text-indent:1rem;}
+.rs_button_p{ float:right;}
+.rs_table_p,.Rs_bg,.rsdata_ul{ background:#f7f7f7;}
+.li_button{ float: left;}
+
+
+.Rs_bg{display:block;height:12.5rem; width:100%; margin-top:0.5rem; float:left; }
+.Rs_history_l{width:40%; background:#FFF; }
+.Rs_history_r{width:60%;background:#FFF;}
+
+.Rm_button_cotainer{float:left; padding-left: 0.5rem;}
+.Rm_button_cotainer button{ font-size: 0.6rem;}
+/*灰底白字-绿底白字*/
+.input_grey{
+    background:none;
+    background:#CCC;
+    border:none;
+    height:1.25rem;
+    line-height:1.25rem;
+    color:#FFF;
+    text-align:center;
+    /*margin:0 auto;*/
+    margin-right:1rem;
+    text-indent:0;
+    border-radius:0.15rem;
+    -moz-border-radius:0.15rem;
+    -webkit-border-radius:0.15rem;
+    z-index:2;
+    position: relative;
+    width:auto;  }
+.selectes_input_grey,.input_grey:hover{
+    background:none;
+    background:#87DC1E;
+    border:none;
+    height:1.25rem;
+    line-height:1.25rem;
+    color:#FFF;
+    text-align:center;
+    margin-right:1rem;
+    border-radius:0.15rem;
+    -moz-border-radius:0.15rem;
+    -webkit-border-radius:0.15rem;
+    z-index:2;
+    position: relative;
+    width:auto  }
+
+/******************************数据记录*********************************/
+.Rs_Data{ display:block;margin-top:0.5rem; float:left;width:50%; height:12.5rem;overflow:hidden;}
+.Rs_Data_l{display:block; background:#f7f7f7; height:11.75rem; padding-top:0.75rem; margin-right:0.25rem;}
+.Rs_Data_r{display:block; background:#f7f7f7; height:11.75rem; padding-top:0.75rem; margin-left:0.25rem; }
+.Rs_Data_h{ height:20rem;  padding-bottom:0.75rem; position: relative;}
+
+.rsdata_ul{ width: 100%; overflow: hidden; padding: 1.25rem 0; line-height: 1.25rem; vertical-align: baseline;}
+.rsdata_ul li{
+    min-width:13rem;
+    margin-left: 1.5rem;
+    float: left;
+    font-size: 0.7rem; }
+
+.rsdata_ul li input[type=text],.rsdata_ul li select{  margin-top: 0.15rem; float: right;}
+.rsdata_ul .transDateSpan{  
+   
+}
+
+.rsdata_ul .transDate{
+    width: 1rem;
+    height:1rem;
+    border: 0.05rem solid #4187C6;
+    color: #4187C6;
+    font-size: 0.6rem;
+    border-radius: 0.1rem;
+    -webkit-border-radius: 0.1rem;
+    z-index: 2;
+    position: relative;
+    vertical-align: middle;
+}
+.rsdata_ul .transDate[disabled]{
+    border-color: #C2C6D1;
+}
+
+.rsdata_ul #laterDay{
+    background: #fff url("../ixx/later.png") center center no-repeat;
+    float: right;
+    margin-top: 0.2rem;
+    margin-left: 0.35rem;
+}
+.rsdata_ul #previousDay{
+    background: #fff url("../ixx/previous.png") center center no-repeat;
+    float: right;
+    margin-top: 0.2rem;
+    margin-right: 0.35rem;
+}
+
+#hideParam{ padding: 0 0 0.5rem 0;}
+#hideParam span{display: inline-block; min-width: 7.5rem;}
+#hideParam li{width:50%; margin-left: 0; line-height: 1.25rem;height: 1.25rem; text-indent: 1.5rem;}
+#hideParam input,#hideParam select{ float: none;}
+.record_warn{
+    position: absolute;
+    bottom: 0.25rem;
+    text-align: center;
+    width: 100%;
+    font-size: 0.6rem;
+    color: #666;
+}
+/******************************PUE*********************************/
+#Rs_PUE_Statistics_curvechart{display:block;  overflow:hidden; width:100%; height:85%;}

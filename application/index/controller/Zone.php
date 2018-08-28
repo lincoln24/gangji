@@ -35,11 +35,17 @@ class Zone extends ControllerBase
     public function get_conf()
     {
         $input = request()->put();
-        $index = $input['dev_id'];
 
-        $ret = model('CZone')->get_zone_detail($index);
+        if(isset($input['zone_id']))
+        {
+            $ret = model('CZone')->get_zone_detail($input['zone_id']);
+        }
+        else
+        {
+            $ret = model('CZone')->get_zone_detail(null);
+        }
 
-        return json_encode($ret);
+        return $this->ajaxReturnCode(CODE_SUCCESS,null,$ret); 
     }
 
     public function set_conf()
@@ -59,5 +65,20 @@ class Zone extends ControllerBase
         {
             return $this->ajaxReturnCode(CODE_SUCCESS); 
         }
+    }
+
+    public function get_devtype_list()
+    {
+        $input = request()->put();
+        if(isset($input['zone_id']))
+        {
+            $ret = model('CZone')->get_devtype_list($input['zone_id']);
+        }
+        else
+        {
+            $ret = model('CZone')->get_devtype_list(null);
+        }
+
+        return $this->ajaxReturnCode(CODE_SUCCESS,null,$ret); 
     }
 }
