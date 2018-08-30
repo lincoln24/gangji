@@ -33,7 +33,7 @@ define(["jquery","pc_public","PCtc"],function($,PCpub) {
         $('#logout').click(function(){
             $.get("/index/index/logout", function(data){
                 if (JSON.parse(data).code == -1) {                    
-                    window.location.href = "/index/index/login";
+                    window.location.href = "/index/index";
                 }
             });
         });
@@ -42,7 +42,7 @@ define(["jquery","pc_public","PCtc"],function($,PCpub) {
         });
         $(document).ajaxError( function(e,xhr,opt){
             if(xhr.status==401){
-                window.location.href = "/index/index/login";
+                window.location.href = "/index/index";
             }
         });
     };

@@ -28,7 +28,7 @@ class Index extends Controller
 
         if($result == null)
         {       
-            return $this->fetch('login'); 
+            return 'error'; 
         }
         else
         {
@@ -40,9 +40,9 @@ class Index extends Controller
 	        //添加登陆记录,暂时未做
 	        // add_login_record($user_id);
 
-            header(strtolower("location:/index/info"));
-            exit();
-            // return 'wfefdfsdf'; 
+            // header(strtolower("location:/index/info"));
+            // exit();
+            return 'success'; 
         }
     }
     /**
@@ -91,7 +91,7 @@ class Index extends Controller
             Session::set('userName',$name);
             Session::set('userID',$result[0]['UserId']);
             Session::set('userLevel',1);
-            
+
             return json_encode(array(
                 "code" => 0,
                 "error" => '',

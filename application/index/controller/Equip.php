@@ -128,7 +128,10 @@ class Equip extends ControllerBase
             $where .= ' AND time_f <= "' . $input['end'] . '"';
         }
 
-        $result = Db::name($table)->field('id,time_f,dev_index,temp_f as dev_data')->where($where)->select();
+        $result = Db::table($table)->field('id,time_f,dev_index,temp_f as dev_data')
+                            ->where($where)
+                            ->order('time_f')
+                            ->select();
 
         if($result == null)
         {

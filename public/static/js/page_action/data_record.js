@@ -174,7 +174,9 @@ define(["jquery","echarts","public","pc_public","mobiscroll",'jqueryui',"My97Dat
 			data: getdata,
 			success: function (returnData) {
 				data = JSON.parse(returnData).data;
-				data_record_show(data,num);
+				if(data != null){
+					data_record_show(data,num);
+				}
 				// var chart_array=historyData_ChartData(data,Lname);//数据
 				// history_data_chart_rule(chart_array,Lname,num);
 				// chart_array=null;

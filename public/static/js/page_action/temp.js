@@ -63,7 +63,8 @@ define(["jquery","echarts","public"],function($,echarts,pub){
             type: "POST",
             data: {"zone_id": zone_id},
             url: "/index/temp/get_temp_sensor_data",
-            success: function (data) {
+            success: function (returnData) {
+                data = JSON.parse(returnData).data;
                 if(!pub.ifNullData(data)){
                     // alert(data);
                     env_bar_data(data);//图表
@@ -91,7 +92,7 @@ define(["jquery","echarts","public"],function($,echarts,pub){
         var temp=[],humi=[];
         var tempX=[],name=[];
         var i= 0,table_html=[];
-        $.each(JSON.parse(returnData),function(key,value){
+        $.each(returnData,function(key,value){
             temp.push(pub.echart_null_data(value.Temp,2));
             name.push(value.Name);
             tempX.push(pub.ten_check(key));//横坐标
