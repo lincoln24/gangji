@@ -53,7 +53,8 @@ class Zone extends ControllerBase
         $input = request()->put();
         $config = json_decode($input['config'], true);
 
-        $data = array('zone_desc' => $config['Name'],
+        $data = array('zone_name' => $config['Name'],
+                      'zone_desc' => $config['Description'],
                       'zone_stat' => STAT_NORMAL);//默认正常
         $result = model('CZone')->set_zone($input['devID'],$data);
 

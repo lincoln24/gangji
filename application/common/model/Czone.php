@@ -14,7 +14,7 @@ class CZone extends Model
             'id' => $user_id))
         ->select();
 
-        $sqlToDo = "select zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat";
+        $sqlToDo = "select zone_id as ZoneId,zone_name as ZoneName,zone_desc as ZoneDesc,zone_stat as ZoneStat";
 
         if($result == null)
         {            
@@ -40,38 +40,38 @@ class CZone extends Model
         return $result;
     }
 
-    public function get_zone_detail($zone_id= null)
+    public function get_zone_detail($zone_id = null)
     {
         if($zone_id != null)
         {
-            $result = $this->field('zone_desc as Name,zone_stat as ZoneStat')
+            $result = $this->field('zone_name as Name,zone_desc as Description,zone_stat as ZoneStat')
                     ->where(array(
                         'zone_id' => $zone_id))
                     ->select();
         }
         else
         {
-            $result = $this->field('zone_desc as Name,zone_stat as ZoneStat')->select();
+            $result = $this->field('zone_name as Name,zone_desc as Description,zone_stat as ZoneStat')->select();
         }
 
-
+        // dump($this->getLastSql());
         return $result;
     }
 
     public function get_devtype_list($zone_id = null)
     {        
-        $sqlToDo = "select zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat";
-        $sqlToDo .= " FROM c_zone z inner join c_sensor s on select zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat";
+        $sqlToDo = "select zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat";
+        $sqlToDo .= " FROM c_zone z inner join c_sensor s on select zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat";
         if($zone_id != null)
         {
-            $zoneList = $this->field('zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat')
+            $zoneList = $this->field('zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat')
                     ->where(array(
                         'zone_id' => $zone_id))
                     ->select();
         }
         else
         {
-            $zoneList = $this->field('zone_id as ZoneId,zone_desc as ZoneDesc,zone_stat as ZoneStat')
+            $zoneList = $this->field('zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat')
                     ->select();
         }
 

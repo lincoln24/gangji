@@ -39,11 +39,11 @@ define(["jquery","public"],function($,pub){
                     idn_zone.empty();
                     html += '<span onclick=change_zone('+zone_list[0].ZoneId+')';
                     html += ' id=zone_list_'+zone_list[0].ZoneId;
-                    html += ' class="statics-figcaption-click">'+zone_list[0].ZoneDesc+'</span>'
+                    html += ' class="statics-figcaption-click">'+zone_list[0].ZoneName+'</span>'
                     for(var i=1;i<zone_list.length;i++){
                         html += '<span onclick=change_zone('+zone_list[i].ZoneId+')';
                         html += ' id=zone_list_'+zone_list[i].ZoneId+'>';
-                        html += zone_list[i].ZoneDesc+'</span>';
+                        html += zone_list[i].ZoneName+'</span>';
                     }
                     idn_zone.html(html);
                     vibration_ajax(zone_list[0].ZoneId);

@@ -39,7 +39,7 @@ requirejs(['jquery','nav','pc_public',"public","poshytip"], function ($,nav,PCpu
 			        idn_zone.empty();
 			        for(var i=0;i<zone_list.length;i++){
 			        	html += '<div style="border-bottom:solid #144388">'+
-			                    '<label>'+zone_list[i].ZoneDesc+'</label>'+
+			                    '<label>'+zone_list[i].ZoneName+'</label>'+
 			              		'</div>';
 
 			            typeList = zone_list[i].devtype_list;

@@ -112,7 +112,7 @@ requirejs(['jquery','nav','pc_public'], function ($,nav,PCpub){
                     $.each(value.devtype_list,function(dkey,dvalue){
                         if(dkey == 0){
                             table_html+='<tr>'+
-                                      '<td rowspan="'+value.devtype_list.length+'">'+value.ZoneDesc+'</td>'+
+                                      '<td rowspan="'+value.devtype_list.length+'">'+value.ZoneName+'</td>'+
                                       '<td><a>'+dvalue.typeName+'</a></td>'+
                                       '<td>'+dvalue.total+'</td>'+
                                       '<td>'+dvalue.abnormal+'</td>'+

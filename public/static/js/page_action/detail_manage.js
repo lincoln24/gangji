@@ -38,7 +38,7 @@ requirejs(['jquery','nav','pc_public',"Validform"], function ($,nav,PCpub){
 			        var html='';
 			        idn_zone.empty();
 			        for(var i=0;i<zone_list.length;i++){
-			        	html += '<option value="'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneDesc+'</option>';
+			        	html += '<option value="'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneName+'</option>';
 			        }
 			        idn_zone.html(html);
 			        if(zone_id != 0){//若get_conf先获取到，这边要重新填值
@@ -171,6 +171,7 @@ requirejs(['jquery','nav','pc_public',"Validform"], function ($,nav,PCpub){
 			case 0://zone
 				idn_span.html("区域设置");
 				$("#equip_setting_ul").find("ul:gt(0)").hide();
+				$("#equip_setting_ul").find("ul:eq(1)").show();
 				// $("#ul_model,#ul_number,#ul_addr,#ul_zone,#ul_overtime,#ul_datasave_span").hide();
 				zone_get_detail_ajax("/zone");
 				Ema_action_rule("/zone");

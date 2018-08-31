@@ -40,7 +40,7 @@ requirejs(['jquery','nav','pc_public',"public","poshytip"], function ($,nav,PCpu
 			        	html += '<div class="gradient">'+
 			        			'<span class="Emanage_snall_title">'+
 			                    '<input type="checkbox" class="em_checkbox" id="zone_'+zone_list[i].ZoneId+'" style="position:relative;margin:0.25rem;z-index:1">'+
-			                    '<label class="namelimit EmLink" id="zonelink_'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneDesc+'</label>'+
+			                    '<label class="namelimit EmLink" id="zonelink_'+zone_list[i].ZoneId+'">'+zone_list[i].ZoneName+'</label>'+
 			              		'</span>'+
 			              		'</div>';
 			        }

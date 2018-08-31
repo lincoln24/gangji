@@ -112,7 +112,7 @@ class User extends ControllerBase
                 $zonelist = model('CZone')->get_zone_list($result[$i]['id']);
                 $zone = "";
                 foreach ($zonelist as $key => $value) {
-                    $zone .= $value["ZoneDesc"] . "/";
+                    $zone .= $value["ZoneName"] . "/";
                 }
                 $result[$i]["zone"] = $zone;
             }
