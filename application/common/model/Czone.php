@@ -12,7 +12,7 @@ class CZone extends Model
         ->field('zone')
         ->where(array(
             'id' => $user_id))
-        ->select();
+        ->find();
 
         $sqlToDo = "select zone_id as ZoneId,zone_name as ZoneName,zone_desc as ZoneDesc,zone_stat as ZoneStat";
 
@@ -21,14 +21,14 @@ class CZone extends Model
             return null;
         }
 
-        if($result[0]["zone"] == "all")
+        if($result["zone"] == "all")
         {
             $sqlToDo .= " FROM c_zone";//查出所有区域
         }
         else
         {
             $sqlToDo .= " FROM c_zone WHERE 1=0";
-            $zoneList = explode(",",$result[0]["zone"]);  
+            $zoneList = explode(",",$result["zone"]);  
             foreach ($zoneList as $key => $value) {
                 $sqlToDo .= " OR zone_id=" . $value;
             }          
@@ -58,22 +58,9 @@ class CZone extends Model
         return $result;
     }
 
-    public function get_devtype_list($zone_id = null)
-    {        
-        $sqlToDo = "select zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat";
-        $sqlToDo .= " FROM c_zone z inner join c_sensor s on select zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat";
-        if($zone_id != null)
-        {
-            $zoneList = $this->field('zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat')
-                    ->where(array(
-                        'zone_id' => $zone_id))
-                    ->select();
-        }
-        else
-        {
-            $zoneList = $this->field('zone_id as ZoneId,zone_name as ZoneName,zone_stat as ZoneStat')
-                    ->select();
-        }
+    public function get_devtype_list($user_id, $zone_id = null)
+    {
+        $zoneList = $this->get_zone_list($user_id);
 
         foreach ($zoneList as $key => $value) 
         {

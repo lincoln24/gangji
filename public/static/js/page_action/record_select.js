@@ -26,7 +26,7 @@ requirejs(['jquery','nav','pc_public',"public","poshytip"], function ($,nav,PCpu
     var get_zone_dev_list=function(){
     	$.ajax({
             type: "POST",
-            data: {},
+            data: {"user_id":1},
             url: "/index/zone/get_devtype_list",
             success: function (returnData) {
 		        var data = JSON.parse(returnData);

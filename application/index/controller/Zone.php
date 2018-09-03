@@ -73,11 +73,11 @@ class Zone extends ControllerBase
         $input = request()->put();
         if(isset($input['zone_id']))
         {
-            $ret = model('CZone')->get_devtype_list($input['zone_id']);
+            $ret = model('CZone')->get_devtype_list($input['user_id'],$input['zone_id']);
         }
         else
         {
-            $ret = model('CZone')->get_devtype_list(null);
+            $ret = model('CZone')->get_devtype_list($input['user_id']);
         }
 
         return $this->ajaxReturnCode(CODE_SUCCESS,null,$ret); 
